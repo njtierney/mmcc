@@ -7,7 +7,7 @@ dsmcmc
 
 ds mcmc provides custom functions written in data.table for tidying up mcmc.list objects.
 
-At this stage there is just one function `tidy_mcmc` that does the data and puts the data into the format
+At this stage there is just one function `mcmc_to_dt` that takes an `mcmc.list` object and turns it into a `data.table` of the format:
 
 |  iteration|  chain| parameter  |       value|
 |----------:|------:|:-----------|-----------:|
@@ -29,14 +29,14 @@ At this stage there is just one function `tidy_mcmc` that does the data and puts
 |        499|      3| y\_pred\[1\] |   -3.884905|
 |        500|      3| y\_pred\[1\] |  -10.399122|
 
-Install
-=======
+Installation
+============
 
-install from github using:
+Install from github using:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("njtierneydsmcmc")
+devtools::install_github("njtierney/dsmcmc")
 ```
 
 Why dsmcmc?

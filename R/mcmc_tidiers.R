@@ -1,4 +1,4 @@
-#' tidy_mcmc
+#' mcmc_to_dt
 #'
 #' use data.table to return a tidy dataframe from an "mcmc.list" object
 #'
@@ -7,7 +7,7 @@
 #' @return a data.table dataframe
 #' @export
 #'
-  tidy_mcmc <- function(mcmc_object){
+  mcmc_to_dt <- function(mcmc_object){
 
   # how many chains?
   n_chain <- length(mcmc_object)
