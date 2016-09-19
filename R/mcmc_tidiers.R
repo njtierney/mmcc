@@ -63,7 +63,7 @@
   } # end loop
 
   # bind the loop together
-  dt_mcmc <- do.call("rbind", dt_box)
+  dt_mcmc <- data.table::rbindlist(dt_box)
 
   # return it
   return(dt_mcmc)
