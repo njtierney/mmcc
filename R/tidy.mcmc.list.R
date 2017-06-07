@@ -15,6 +15,7 @@
 #' @importFrom stats quantile
 #' @importFrom stats sd
 #' @importFrom stats median
+#' @importFrom data.table data.table
 #'
 #' @return a data.table containing parameter summaries
 #'
