@@ -2,6 +2,7 @@
 
 export(mcmc_to_dt)
 export(tidy.mcmc.list)
+importFrom(data.table,data.table)
 importFrom(stats,median)
 importFrom(stats,quantile)
 importFrom(stats,sd)
