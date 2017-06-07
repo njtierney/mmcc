@@ -15,4 +15,3 @@ a data.table dataframe
 \description{
 use data.table to return a tidy dataframe from an "mcmc.list" object
 }
-
