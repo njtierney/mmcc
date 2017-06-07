@@ -1,4 +1,5 @@
 
+
 #' tidy.mcmc.list
 #'
 #' Return a tidy data summary of an MCMC object
@@ -8,11 +9,15 @@
 #' @param mcmc_object an object of class "mcmc.list", as you would find with fitting a model using `jags.model()`, and `coda.samples`
 #'
 #' @param conf.level level of the credible interval to be calculuated
+#'
 #' @author Sam Clifford, \email{samuel.clifford@@qut.edu.au}
+#'
 #' @importFrom stats quantile
 #' @importFrom stats sd
+#' @importFrom stats median
 #'
 #' @return a data.table containing parameter summaries
+#'
 #' @export
 #'
 
@@ -30,7 +35,7 @@ tidy.mcmc.list <- function(mcmc_object,
                          Median = median(value),
                          q2 = quantile(value, q[2])
                     ),
-                    by=parameter ]
+                    by=.(parameter)]
 
     data.table::setnames(x.dt.s,
                          old=c("q1", "q2"),

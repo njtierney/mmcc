@@ -23,16 +23,18 @@ mcmc_to_dt <- function(mcmc_object){
     # how many iterations?
     iterations <- 1:dim(mcmc_chain_c)[1]
 
-    mcmc_dt <- data.table::data.table(Iteration = iterations,
-                                      as.matrix(unclass(mcmc_chain_c)),
-                                      check.names = FALSE,
-                                      # specify a new column for the chain number
-                                      chain = c)
+    mcmc_dt <- data.table::data.table(
+        Iteration = iterations,
+        as.matrix(unclass(mcmc_chain_c)),
+        check.names = FALSE,
+        # specify a new column for the chain number
+        chain = c)
 
     # gather the columns so we end up with a column of
-    dt_melt <- data.table::melt.data.table(data = mcmc_dt,
-                                           id.vars = c("Iteration",
-                                                       "chain"))
+    dt_melt <- data.table::melt.data.table(
+        data = mcmc_dt,
+        id.vars = c("Iteration",
+                    "chain"))
 
     # head(dt_melt)
 
