@@ -7,7 +7,7 @@
 #' @return a data.table dataframe
 #' @export
 #'
-  mcmc_to_dt <- function(mcmc_object){
+mcmc_to_dt <- function(mcmc_object){
 
   # how many chains?
   n_chain <- length(mcmc_object)
@@ -17,48 +17,50 @@
 
   for (c in 1:n_chain) {
 
-      # get the mcmc object
-      mcmc_chain_c <- mcmc_object[c][[1]]
+    # get the mcmc object
+    mcmc_chain_c <- mcmc_object[c][[1]]
 
-      # how many iterations?
-      iterations <- 1:dim(mcmc_chain_c)[1]
+    # how many iterations?
+    iterations <- 1:dim(mcmc_chain_c)[1]
 
-      mcmc_dt <- data.table::data.table(Iteration = iterations,
-                                        as.matrix(unclass(mcmc_chain_c)),
-                                        check.names = FALSE,
-                            # specify a new column for the chain number
-                                        chain = c)
+    mcmc_dt <- data.table::data.table(
+        Iteration = iterations,
+        as.matrix(unclass(mcmc_chain_c)),
+        check.names = FALSE,
+        # specify a new column for the chain number
+        chain = c)
 
-      # gather the columns so we end up with a column of
-      dt_melt <- data.table::melt.data.table(data = mcmc_dt,
-                                             id.vars = c("Iteration",
-                                                         "chain"))
+    # gather the columns so we end up with a column of
+    dt_melt <- data.table::melt.data.table(
+        data = mcmc_dt,
+        id.vars = c("Iteration",
+                    "chain"))
 
-      # head(dt_melt)
+    # head(dt_melt)
 
-      # reset the names
-      data.table::setnames(dt_melt, c("iteration",
-                                      "chain",
-                                      "parameter",
-                                      "value"))
+    # reset the names
+    data.table::setnames(dt_melt, c("iteration",
+                                    "chain",
+                                    "parameter",
+                                    "value"))
 
-      # head(dt_melt)
+    # head(dt_melt)
 
-      # change the order of the columns
-      data.table::setcolorder(dt_melt, c("iteration",
-                                         "chain",
-                                         "parameter",
-                                         "value"))
+    # change the order of the columns
+    data.table::setcolorder(dt_melt, c("iteration",
+                                       "chain",
+                                       "parameter",
+                                       "value"))
 
-      # arrange the row order
-      data.table::setorder(dt_melt,
-                           parameter,
-                           chain,
-                           iteration)
+    # arrange the row order
+    data.table::setorder(dt_melt,
+                         parameter,
+                         chain,
+                         iteration)
 
-      # head(dt_melt)
+    # head(dt_melt)
 
-      dt_box[[c]] <- dt_melt
+    dt_box[[c]] <- dt_melt
 
   } # end loop
 
@@ -69,3 +71,4 @@
   return(dt_mcmc)
 
 }
+
