@@ -43,6 +43,28 @@ and `tidy.mcmc.list` which takes an `mcmc.list`, turns it into a `data.table` an
 tidy.mcmc.list(line)
 ```
 
+We can also optionally ask for a subset of the parameters with a vector of `colnames` and summarise for each chain:
+
+``` {r}
+tidy.mcmc.list(line, chain = TRUE, colnames=c("alpha"))
+```
+
+This may be useful if we want to make a plot that shows how a given parameter varies from chain to chain
+
+``` {r, fig.height=3, fig.width=7}
+library(ggplot2)
+
+line_tidy <- tidy.mcmc.list(line, chain = TRUE)
+
+ggplot(data=line_tidy, aes(x=factor(chain), y=Mean)) +
+    geom_pointrange(aes(ymin = `2.5%`,
+                        ymax = `97.5%`)) +
+    facet_wrap( ~ parameter, nrow = 1, scales="free_y") +
+    theme_bw() +
+    xlab("Chain") +
+    ylab("Value")
+```
+
 # Installation
 
 Install from github using:

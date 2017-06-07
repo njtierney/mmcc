@@ -1,7 +1,7 @@
 Package: dsmcmc
 Type: Package
 Title: tidy mcmc.list using data.table
-Version: 0.0.2
+Version: 0.0.3
 Author: Nicholas Tierney, Sam Clifford
 Maintainer: Nicholas Tierney <nicholas.tierney@gmail.com>
 Description: dsmcmc makes it easy and FAST to tidy up and visualise

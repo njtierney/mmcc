@@ -4,12 +4,17 @@
 \alias{tidy.mcmc.list}
 \title{tidy.mcmc.list}
 \usage{
-tidy.mcmc.list(mcmc_object, conf.level = 0.95)
+tidy.mcmc.list(mcmc_object, conf.level = 0.95, chain = FALSE,
+  colnames = NULL)
 }
 \arguments{
 \item{mcmc_object}{an object of class "mcmc.list", as you would find with fitting a model using `jags.model()`, and `coda.samples`}
 
 \item{conf.level}{level of the credible interval to be calculuated}
+
+\item{chain}{whether or not to summarise each parameter for each chain}
+
+\item{colnames}{which parameters we want from `mcmc_object`, if `NULL` then all columns get selected}
 }
 \value{
 a data.table containing parameter summaries
