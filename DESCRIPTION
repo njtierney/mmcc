@@ -1,7 +1,7 @@
 Package: dsmcmc
 Type: Package
 Title: tidy mcmc.list using data.table
-Version: 0.0.3
+Version: 0.0.4
 Author: Nicholas Tierney, Sam Clifford
 Maintainer: Nicholas Tierney <nicholas.tierney@gmail.com>
 Description: dsmcmc makes it easy and FAST to tidy up and visualise
@@ -15,5 +15,7 @@ Imports:
     data.table
 RoxygenNote: 6.0.1
 Suggests: knitr,
-    rmarkdown
+    rmarkdown,
+    rjags,
+    broom
 VignetteBuilder: knitr
