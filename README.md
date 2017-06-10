@@ -3,6 +3,8 @@
 dsmcmc
 ======
 
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/njtierney/dsmcmc?branch=master&svg=true)](https://ci.appveyor.com/project/njtierney/dsmcmc) [![Travis-CI Build Status](https://travis-ci.org/njtierney/dsmcmc.svg?branch=master)](https://travis-ci.org/njtierney/dsmcmc) [![Coverage Status](https://img.shields.io/codecov/c/github/njtierney/dsmcmc/master.svg)](https://codecov.io/github/njtierney/dsmcmc?branch=master)
+
 **License:** [MIT](https://opensource.org/licenses/MIT)
 
 ds mcmc provides custom functions written in data.table for tidying up mcmc.list objects.

@@ -13,10 +13,12 @@ Encoding: UTF-8
 LazyData: true
 Imports:
     data.table
-RoxygenNote: 6.0.1
+<<<<<<< HEAD
+RoxygenNote: 6.0.1.9000
 Suggests: knitr,
     rmarkdown,
     rjags,
     broom,
-    ggplot2
+    ggplot2,
+    covr
 VignetteBuilder: knitr
