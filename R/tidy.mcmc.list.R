@@ -9,6 +9,8 @@
 #' @param mcmc_object an object of class "mcmc.list", as you would find with fitting a model using `jags.model()`, and `coda.samples`
 #'
 #' @param conf.level level of the credible interval to be calculuated
+#' @param chain whether or not to summarise each parameter for each chain
+#' @param colnames which parameters we want from `mcmc_object`, if `NULL` then all columns get selected
 #'
 #' @author Sam Clifford, \email{samuel.clifford@@qut.edu.au}
 #'
@@ -22,25 +24,24 @@
 #' @export
 #'
 
-tidy.mcmc.list <- function(mcmc_object,
-                           conf.level=0.95){
+tidy.mcmc.list <- function (mcmc_object, conf.level = 0.95, chain=FALSE, colnames=NULL) {
+  q <- c((1 - conf.level)/2, 1 - (1 - conf.level)/2)
+  x.dt <- mcmc_to_dt(mcmc_object, colnames=colnames)
 
-    q <- c((1-conf.level)/2, 1-(1-conf.level)/2)
+  my.by <- "parameter"
 
-    x.dt <- mcmc_to_dt(mcmc_object)
+  if (chain){
+    my.by <- c(my.by, "chain")
+  }
 
-    x.dt.s <- x.dt[ ,
-                    list(Mean = mean(value),
-                         SD = sd(value),
-                         q1 = quantile(value, q[1]),
-                         Median = median(value),
-                         q2 = quantile(value, q[2])
-                    ),
-                    by=.(parameter)]
+  x.dt.s <- x.dt[, list(Mean = mean(value), SD = sd(value),
+                        q1 = quantile(value, q[1]),
+                        Median = median(value),
+                        q2 = quantile(value, q[2])),
+                 by = my.by]
 
-    data.table::setnames(x.dt.s,
-                         old=c("q1", "q2"),
-                         new=sprintf("%2.1f%%", q*100))
-
-    return(x.dt.s)
+  data.table::setnames(x.dt.s, old = c("q1", "q2"), new = sprintf("%2.1f%%",
+                                                                  q * 100))
+  return(x.dt.s)
 }
+

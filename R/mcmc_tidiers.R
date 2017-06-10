@@ -3,14 +3,20 @@
 #' use data.table to return a tidy dataframe from an "mcmc.list" object
 #'
 #' @param mcmc_object an object of class "mcmc.list", as you would find with fitting a model using `jags.model()`, and `coda.samples`
+#' @param colnames which parameters we want from `mcmc_object`, if `NULL` then all columns get selected
 #'
 #' @return a data.table dataframe
 #' @export
 #'
-mcmc_to_dt <- function(mcmc_object){
+mcmc_to_dt <- function(mcmc_object, colnames=NULL){
 
   # how many chains?
   n_chain <- length(mcmc_object)
+
+  # which parameters are we summarising?
+  if (is.null(colnames)){
+      colnames <- attr(mcmc_object[1][[1]], "dimnames")[[2]]
+  }
 
   # make a box to put the results in
   dt_box <- vector("list", n_chain)
@@ -18,7 +24,8 @@ mcmc_to_dt <- function(mcmc_object){
   for (c in 1:n_chain) {
 
     # get the mcmc object
-    mcmc_chain_c <- mcmc_object[c][[1]]
+    mcmc_chain_c <- as.matrix(mcmc_object[c][[1]][,colnames])
+    colnames(mcmc_chain_c) <- colnames
 
     # how many iterations?
     iterations <- 1:dim(mcmc_chain_c)[1]

@@ -4,10 +4,12 @@
 \alias{mcmc_to_dt}
 \title{mcmc_to_dt}
 \usage{
-mcmc_to_dt(mcmc_object)
+mcmc_to_dt(mcmc_object, colnames = NULL)
 }
 \arguments{
 \item{mcmc_object}{an object of class "mcmc.list", as you would find with fitting a model using `jags.model()`, and `coda.samples`}
+
+\item{colnames}{which parameters we want from `mcmc_object`, if `NULL` then all columns get selected}
 }
 \value{
 a data.table dataframe
