@@ -7,8 +7,8 @@ model{
 
     # prediction block
     for (i in 1:m){
-        y.rep[i] ~ dnorm(mu.rep[i], tau.y)
-        mu.rep[i] <- beta.0 + beta.1*x.rep[i]
+        y.pred[i] ~ dnorm(mu.pred[i], tau.y)
+        mu.pred[i] <- beta.0 + beta.1*x.pred[i]
     }
 
     # priors

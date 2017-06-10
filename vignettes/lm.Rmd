@@ -8,13 +8,14 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
-
-
+  
+  
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(
-    collapse = TRUE,
-    comment = "#>",
-    fig.path = "README-"
+collapse = TRUE,
+comment = "#>",
+fig.path = "README-",
+message=FALSE, warning=FALSE
 )
 
 library(dsmcmc)
@@ -22,20 +23,42 @@ library(dsmcmc)
 
 First, we simulate some data
 
-``` {r}
+``` {r, fig.align="center"}
+set.seed(4000)
 N <- 20
 x <- sort(runif(n = N))
 y <- rnorm(n=N, mean = 2*x + 1, sd=0.25)
+dat <- data.frame(x = x, y = y)
+
+library(ggplot2)
+ggplot(data=dat,
+       aes(x=x, y=y)) +
+    geom_point() +
+    theme_bw()
 ```
 
-We will fit the model, and therefore generate the `mcmc_object` with the `rjags` package.
+and some values for predicting
+``` {r}
+M <- 10
+x.pred <- seq(from=min(x), to=max(x), length.out = M)
+```
+
+We will fit the model, specified as,
+
+```{r comment='', echo=F}
+cat(readLines('model.txt'), sep = '\n')
+```
+
+and therefore generate the `mcmc_object` with the `rjags` package.
 
 ``` {r}
 library(rjags)
 model <- jags.model(file = "model.txt",
                     data = list(n = N,
                                 x = x,
-                                y = y))
+                                y = y,
+                                m = M,
+                                x.pred = x.pred))
 ```
 
 Draw burn-in samples and posterior inference samples for all terms in the model.
@@ -46,7 +69,7 @@ burn <- jags.samples(model,
                      n.iter = 5000)
 
 samples <- coda.samples(model,
-                        c("beta.0", "beta.1", "tau.y", "mu", "y.rep"),
+                        c("beta.0", "beta.1", "tau.y", "mu.pred", "y.pred"),
                         n.iter = 10000)
 
 ```
@@ -59,39 +82,67 @@ library(dsmcmc)
 samples_dt <- mcmc_to_dt(samples)
 samples_dt
 
-tidy.mcmc.list(samples, conf.level=0.95, colnames = c("beta.0", "beta.1", "tau.y"))
+pars_dt <- tidy.mcmc.list(samples, conf.level=0.95, 
+                          colnames = c("beta.0", "beta.1", "tau.y"))
+pars_dt
 ```
 
-Summarise the line of best fit, `mu`, and the predictions, `y.rep`,
+Summarise the line of best fit, `mu`, and the predictions, `y.pred`,
 
 ``` {r}
-mu_dt <- tidy.mcmc.list(samples, conf.level=0.95, colnames =  "mu")
-y_dt <- tidy.mcmc.list(samples, conf.level=0.95, colnames =  "y.rep")
+mu_dt <- tidy.mcmc.list(samples, conf.level=0.95, colnames =  "mu.pred")
+y_dt <- tidy.mcmc.list(samples, conf.level=0.95, colnames =  "y.pred")
 ```
 
-For convenience, add the data to these data tables for plotting
+For plotting, we add the prediction $\boldsymbol{x}$ values to these data tables for plotting
 
 ``` {r}
-mu_dt[, c("x","y") := list(x, y) ]
-y_dt[ , c("x","y") := list(x, y) ]
+mu_dt[, x:= x.pred ]
+y_dt[ , x:= x.pred ]
+
+y_dt
 ```
 
-Now we'll generate a plot that shows the data, a 95% prediction interval and a 95% confidence interval for the means.
+Now we'll generate a plot that shows the data, a 95% credible interval for the predictions, ${\hat{\boldsymbol{y}}}_{pred}$, and a 95% credible interval for their means, ${\hat{\boldsymbol{\mu}}}_{pred}$.
 
-``` {r}
-library(ggplot2)
-ggplot(data=mu_dt,
-       aes(x=x, y=y)) +
-    geom_point() +
+``` {r, fig.align="center", echo=F}
+ggplot(data=dat,
+       aes(x=x)) +
+    geom_point(aes(y=y)) +
     geom_ribbon(aes(ymin = `2.5%`,
                     ymax = `97.5%`),
                 fill = "salmon",
-                alpha = 0.5) +
+                alpha = 0.5,
+                data = mu_dt) +
     geom_ribbon(aes(ymin = `2.5%`,
                     ymax = `97.5%`),
                 fill = "lightskyblue",
                 alpha = 0.25,
                 data = y_dt) +
-    geom_line(aes(y = Mean)) +
+    geom_line(aes(y = Mean),
+              data=y_dt) +
     theme_bw()
+```
+
+If we tidy the `samples` object, we can look at the distribution of values
+
+``` {r, fig.height=2, fig.width=7}
+tidy_samples <- mcmc_to_dt(samples, 
+                           colnames = c("beta.0", "beta.1", "tau.y"))
+
+ggplot(data=tidy_samples, aes(x=value)) +
+    geom_density(color="black", fill="grey90") +
+    facet_wrap( ~ parameter,
+                nrow = 1,
+                scales="free") +
+    theme_bw() +
+    geom_segment(data=pars_dt,
+                   aes(x = `2.5%`,
+                       xend = `97.5%`),
+                 y = 0, yend = 0,
+                 size=2) +
+    geom_point(data=pars_dt,
+               aes(x=Mean),
+               y = 0,
+               color="white")
 ```
