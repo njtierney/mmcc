@@ -24,24 +24,33 @@
 #' @export
 #'
 
-tidy.mcmc.list <- function (mcmc_object, conf.level = 0.95, chain=FALSE, colnames=NULL) {
-  q <- c((1 - conf.level)/2, 1 - (1 - conf.level)/2)
-  x.dt <- mcmc_to_dt(mcmc_object, colnames=colnames)
+tidy.mcmc.list <- function (mcmc_object,
+                            conf.level = 0.95,
+                            chain=FALSE,
+                            colnames=NULL){
 
-  my.by <- "parameter"
+    # set credible interval quantiles to use
+    q <- c((1 - conf.level)/2, 1 - (1 - conf.level)/2)
 
-  if (chain){
-    my.by <- c(my.by, "chain")
-  }
+    # convert from mcmc.list to data.table
+    x.dt <- mcmc_to_dt(mcmc_object, colnames=colnames)
 
-  x.dt.s <- x.dt[, list(Mean = mean(value), SD = sd(value),
-                        q1 = quantile(value, q[1]),
-                        Median = median(value),
-                        q2 = quantile(value, q[2])),
-                 by = my.by]
+    my.by <- "parameter"
 
-  data.table::setnames(x.dt.s, old = c("q1", "q2"), new = sprintf("%2.1f%%",
-                                                                  q * 100))
-  return(x.dt.s)
+    if (chain){
+        my.by <- c(my.by, "chain")
+    }
+
+    x.dt.s <- x.dt[, list(Mean = mean(value),
+                          SD = sd(value),
+                          q1 = quantile(value, q[1]),
+                          Median = median(value),
+                          q2 = quantile(value, q[2])),
+                   by = my.by]
+
+    data.table::setnames(x.dt.s, old = c("q1", "q2"),
+                         new = sprintf("%2.1f%%", q * 100))
+
+    return(x.dt.s)
 }
 
