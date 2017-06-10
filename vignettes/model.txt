@@ -1,0 +1,19 @@
+model{
+    # model block
+    for (i in 1:n){
+        y[i] ~ dnorm(mu[i], tau.y)
+        mu[i] <- beta.0 + beta.1*x[i]
+    }
+
+    # prediction block
+    for (i in 1:m){
+        y.rep[i] ~ dnorm(mu.rep[i], tau.y)
+        mu.rep[i] <- beta.0 + beta.1*x.rep[i]
+    }
+
+    # priors
+    beta.0 ~ dunif(-1e12, 1e12)
+    beta.1 ~ dunif(-1e12, 1e12)
+    tau.y <- exp(2*log.sigma)
+    log.sigma ~ dunif(-1e12, 1e12)
+}
