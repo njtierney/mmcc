@@ -21,48 +21,53 @@ library(dsmcmc)
 
 **License:** [MIT](https://opensource.org/licenses/MIT)
 
-ds mcmc provides custom functions written in data.table for tidying up mcmc.list objects.
+dsmcmc provides custom functions written in data.table for tidying up mcmc.list objects.
 
-``` {r, warning=F, message=F}
-library(dsmcmc)
-```
+At this stage there are just two functions, `mcmc_to_dt` and `tidy.mcmc.list` - called with `tidy`.
 
-At this stage there are just two functions `mcmc_to_dt` that takes an `mcmc.list` object and turns it into a `data.table` of the format:
+`mcmc_to_dt` takes an `mcmc.list` object and turns it into a `data.table` of the format:
 
-``` {r}
+```{r show-dsmcmc}
 library(coda)
 data(line)
 
 head(data.frame(line$line1))
 
+library(dsmcmc)
 mcmc_to_dt(line)
 
 ```
 
 
-and `tidy.mcmc.list` which takes an `mcmc.list`, turns it into a `data.table` and summarises it in terms of each parameter's mean, median, standard deviation and credible interval with level given by `conf.level`:
+`tidy.mcmc.list` takes an `mcmc.list`, turns it into a `data.table` and summarises it in terms of each parameter's mean, median, standard deviation and credible interval with level given by `conf.level`:
 
-``` {r}
-tidy.mcmc.list(line)
+``` {r show-tidy-method}
+tidy(line)
 ```
 
 We can also optionally ask for a subset of the parameters with a vector of `colnames` and summarise for each chain:
 
-``` {r}
-tidy.mcmc.list(line, chain = TRUE, colnames=c("alpha"))
+``` {r show-tidy-options}
+tidy(line, 
+     chain = TRUE, 
+     colnames=c("alpha"))
 ```
 
-This may be useful if we want to make a plot that shows how a given parameter varies from chain to chain
+This may be useful if we want to make a plot that shows how a given parameter varies from chain to chain.
 
-``` {r, fig.height=3, fig.width=7}
+``` {r show-tidy-ggplot, fig.height=3, fig.width=7}
 library(ggplot2)
 
-line_tidy <- tidy.mcmc.list(line, chain = TRUE)
+line_tidy <- tidy(line, chain = TRUE)
 
-ggplot(data=line_tidy, aes(x=factor(chain), y=Mean)) +
+ggplot(data = line_tidy, 
+       aes(x = factor(chain), 
+           y = mean)) +
     geom_pointrange(aes(ymin = `2.5%`,
                         ymax = `97.5%`)) +
-    facet_wrap( ~ parameter, nrow = 1, scales="free_y") +
+    facet_wrap(~parameter, 
+               nrow = 1, 
+               scales = "free_y") +
     theme_bw() +
     xlab("Chain") +
     ylab("Value")
