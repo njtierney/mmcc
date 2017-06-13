@@ -22,6 +22,7 @@
 #' @return a data.table containing parameter summaries
 #'
 #' @export
+#'
 tidy.mcmc.list <- function(x,
                            conf_level = 0.95,
                            chain = FALSE,
@@ -29,10 +30,12 @@ tidy.mcmc.list <- function(x,
                            ...){
 
     # set credible interval quantiles to use
-    q <- c((1 - conf_level)/2, 1 - (1 - conf_level)/2)
+    q <- c((1 - conf_level)/2,
+           1 - (1 - conf_level)/2)
 
     # convert from mcmc.list to data.table
     x_dt <- mcmc_to_dt(x, colnames = colnames)
+
 
     my_by <- "parameter"
 
@@ -41,10 +44,10 @@ tidy.mcmc.list <- function(x,
     }
 
     x_dt_s <- x_dt[ , list(mean = mean(value),
-                          sd = stats::sd(value),
-                          q1 = stats::quantile(value, q[1]),
-                          median = stats::median(value),
-                          q2 = stats::quantile(value, q[2])),
+                           sd = stats::sd(value),
+                           q1 = stats::quantile(value, q[1]),
+                           median = stats::median(value),
+                           q2 = stats::quantile(value, q[2])),
                     by = my_by]
 
     data.table::setnames(x_dt_s,

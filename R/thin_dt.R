@@ -8,9 +8,9 @@
 #' @return a data.table dataframe
 #' @export
 #'
-mcmc_to_dt <- function(dt, thin=1){
+thin_dt <- function(dt, thin=1){
 
-    dt_thinned <- dt[ , iteration %% thin == 1 ]
+    dt_thinned <- dt[  iteration %% thin == 1 , ]
 
     # return it
     return(dt_thinned)

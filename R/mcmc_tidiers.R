@@ -28,8 +28,11 @@ mcmc_to_dt <- function(mcmc_object, colnames=NULL){
   if (is.null(colnames)){
       colnames <- data_colnames
   } else {
-      colnames <- unlist(sapply(X = colnames,
-                         FUN = get_colnames))
+      colnames <-
+          as.character(
+              unlist(
+                  sapply(X = colnames,
+                         FUN = get_colnames)))
   }
 
   # make a box to put the results in

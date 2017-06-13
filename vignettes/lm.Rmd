@@ -84,7 +84,8 @@ model <- jags.model(file = textConnection(jags_model),
                                 x = x,
                                 y = y,
                                 m = M,
-                                x_pred = x_pred))
+                                x_pred = x_pred),
+                    n.chains = 3)
 ```
 
 We draw burn-in samples and posterior inference samples for all terms in the model.
@@ -111,6 +112,7 @@ We can now convert the posterior samples to a `data.table` and summarise the reg
 
 ``` {r rjags-summarise}
 library(dsmcmc)
+library(broom)
 
 # convert to a data.table
 samples_dt <- mcmc_to_dt(samples)
@@ -145,7 +147,7 @@ y_dt[ , x:= x_pred]
 y_dt
 ```
 
-Now we'll generate a plot that shows the data, a 95% credible interval for the predictions, ${\hat{\boldsymbol{y}}}_{pred}$, and a 95% credible interval for their means, ${\hat{\boldsymbol{\mu}}}_{pred}$.
+Now we'll generate a plot that shows the data, a 95% credible interval for the predictions, ${\hat{\bm{y}}}_{pred}$, and a 95% credible interval for their means, ${\hat{\bm{\mu}}}_{pred}$.
 
 ``` {r dsmcmc-plot-cr-i, fig.align="center", echo=F}
 ggplot(data = dat,
@@ -192,4 +194,17 @@ ggplot(data = tidy_samples,
                aes(x = mean),
                y = 0,
                color = "white")
+```
+
+We can also thin to create trace plots and plot per chain
+
+``` {r}
+tidy_samples_10 <- thin_dt(tidy_samples, thin = 10)
+
+ggplot(data=tidy_samples_10, aes(x=iteration, y=value)) +
+    geom_line(aes(group=chain, color=factor(chain))) +
+    facet_wrap( ~ parameter, ncol=1, scales="free_y") +
+    theme_bw() +
+    theme(legend.position = "bottom") +
+    scale_color_discrete(name="Chain")
 ```
