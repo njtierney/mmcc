@@ -1,3 +1,16 @@
+dsmcmc 0.0.5.9000 (2017/06/12)
+=========================
+
+## Minor Changes
+
+- Changes `tidy` summaries to be lowercase.
+- Added `broom` to Depends to make `tidy.mcmc.list` to work with `tidy`, since `@importFrom broom tidy` didn't really seem to work, and I want to be able to just call `tidy`.
+- no longer import from stats
+- Updated vignette to use `tidy` instead of `tidy.mcmc.list`
+- Vignette and README style changes in line with tidyverse style.
+  - Use `snake_case` where possible.
+  - Added more whitespace to functions.
+
 dsmcmc 0.0.4 (2017/06/10)
 =========================
 
