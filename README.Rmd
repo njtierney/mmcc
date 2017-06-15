@@ -21,19 +21,19 @@ library(mmcc)
 
 **License:** [MIT](https://opensource.org/licenses/MIT)
 
-dsmcmc provides custom functions written in data.table for tidying up mcmc.list objects.
+mmcc provides custom functions written in data.table for tidying up mcmc.list objects.
 
 At this stage there are just two functions, `mcmc_to_dt` and `tidy.mcmc.list` - called with `tidy`.
 
 `mcmc_to_dt` takes an `mcmc.list` object and turns it into a `data.table` of the format:
 
-```{r show-dsmcmc}
+```{r show-mmcc}
 library(coda)
 data(line)
 
 head(data.frame(line$line1))
 
-library(dsmcmc)
+library(mmcc)
 mcmc_to_dt(line)
 
 ```

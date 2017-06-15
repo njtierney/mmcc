@@ -2,18 +2,14 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
     ## Loading required package: broom
 
-dsmcmc
-=============
-
 mmcc
 ====
->>>>>>> Stashed changes
 
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/njtierney/mmcc?branch=master&svg=true)](https://ci.appveyor.com/project/njtierney/mmcc) [![Travis-CI Build Status](https://travis-ci.org/njtierney/mmcc.svg?branch=master)](https://travis-ci.org/njtierney/mmcc) [![Coverage Status](https://img.shields.io/codecov/c/github/njtierney/mmcc/master.svg)](https://codecov.io/github/njtierney/mmcc?branch=master)
 
 **License:** [MIT](https://opensource.org/licenses/MIT)
 
-dsmcmc provides custom functions written in data.table for tidying up mcmc.list objects.
+mmcc provides custom functions written in data.table for tidying up mcmc.list objects.
 
 At this stage there are just two functions, `mcmc_to_dt` and `tidy.mcmc.list` - called with `tidy`.
 
@@ -32,7 +28,7 @@ head(data.frame(line$line1))
 #> 5 3.70544  0.490437  1.362130
 #> 6 3.57910  0.206970  1.043500
 
-library(dsmcmc)
+library(mmcc)
 mcmc_to_dt(line)
 #>       iteration chain parameter    value
 #>    1:         1     1     alpha 7.173130
