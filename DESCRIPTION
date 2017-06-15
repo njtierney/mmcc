@@ -1,7 +1,7 @@
 Package: mmcc
 Type: Package
 Title: tidy mcmc.list using data.table
-Version: 0.0.4
+Version: 0.0.5.9001
 Author: Nicholas Tierney, Sam Clifford
 Maintainer: Nicholas Tierney <nicholas.tierney@gmail.com>
 Description: mmcc makes it easy and FAST to tidy up and visualise
@@ -17,7 +17,7 @@ RoxygenNote: 6.0.1.9000
 Suggests: knitr,
     rmarkdown,
     rjags,
-    broom,
     ggplot2,
     covr
 VignetteBuilder: knitr
+Depends: broom

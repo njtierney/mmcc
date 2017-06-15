@@ -2,18 +2,21 @@
 % Please edit documentation in R/mcmc_tidiers.R
 \name{mcmc_to_dt}
 \alias{mcmc_to_dt}
-\title{mcmc_to_dt}
+\title{Convert `mcmc.list` to a tidy data.table object}
 \usage{
 mcmc_to_dt(mcmc_object, colnames = NULL)
 }
 \arguments{
-\item{mcmc_object}{an object of class "mcmc.list", as you would find with fitting a model using `jags.model()`, and `coda.samples`}
+\item{mcmc_object}{an object of class "mcmc.list", as you would find with
+fitting a model using `jags.model()`, and `coda.samples`}
 
-\item{colnames}{which parameters we want from `mcmc_object`, if `NULL` then all columns get selected}
+\item{colnames}{which parameters we want from `mcmc_object`, if `NULL` then all
+columns get selected}
 }
 \value{
 a data.table dataframe
 }
 \description{
-use data.table to return a tidy dataframe from an "mcmc.list" object
+`mcmc_to_dt` use data.table to return a tidy dataframe from an "mcmc.list"
+  object
 }

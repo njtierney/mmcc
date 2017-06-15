@@ -1,9 +1,12 @@
-#' mcmc_to_dt
+#' Convert `mcmc.list` to a tidy data.table object
 #'
-#' use data.table to return a tidy dataframe from an "mcmc.list" object
+#' `mcmc_to_dt` use data.table to return a tidy dataframe from an "mcmc.list"
+#'   object
 #'
-#' @param mcmc_object an object of class "mcmc.list", as you would find with fitting a model using `jags.model()`, and `coda.samples`
-#' @param colnames which parameters we want from `mcmc_object`, if `NULL` then all columns get selected
+#' @param mcmc_object an object of class "mcmc.list", as you would find with
+#'   fitting a model using `jags.model()`, and `coda.samples`
+#' @param colnames which parameters we want from `mcmc_object`, if `NULL` then all
+#'   columns get selected
 #'
 #' @return a data.table dataframe
 #' @export
@@ -25,8 +28,11 @@ mcmc_to_dt <- function(mcmc_object, colnames=NULL){
   if (is.null(colnames)){
       colnames <- data_colnames
   } else {
-      colnames <- unlist(sapply(X = colnames,
-                         FUN = get_colnames))
+      colnames <-
+          as.character(
+              unlist(
+                  sapply(X = colnames,
+                         FUN = get_colnames)))
   }
 
   # make a box to put the results in
@@ -54,15 +60,11 @@ mcmc_to_dt <- function(mcmc_object, colnames=NULL){
         id.vars = c("Iteration",
                     "chain"))
 
-    # head(dt_melt)
-
     # reset the names
     data.table::setnames(dt_melt, c("iteration",
                                     "chain",
                                     "parameter",
                                     "value"))
-
-    # head(dt_melt)
 
     # change the order of the columns
     data.table::setcolorder(dt_melt, c("iteration",
@@ -75,8 +77,6 @@ mcmc_to_dt <- function(mcmc_object, colnames=NULL){
                          parameter,
                          chain,
                          iteration)
-
-    # head(dt_melt)
 
     dt_box[[c]] <- dt_melt
 
