@@ -1,3 +1,11 @@
+dsmcmc 0.0.5.9001 (2017/06/13)
+=========================
+
+## Minor Changes
+
+- added `thin_dt`, to allow post hoc thinning of chains
+- updated linear model vignette to show off `thin_dt` with trace plots
+
 dsmcmc 0.0.5.9000 (2017/06/12)
 =========================
 
