@@ -1,3 +1,37 @@
+mmcc 0.0.6.900 (2017/06/15)
+=========================
+
+## Minor Changes
+
+* changed name from `dsmcmc` to `mmcc`.
+
+>>>>>>> Stashed changes
+dsmcmc 0.0.5.9001 (2017/06/13)
+=========================
+
+## Minor Changes
+
+- added `thin_dt`, to allow post hoc thinning of chains
+- updated linear model vignette to show off `thin_dt` with trace plots
+
+>>>>>>> Stashed changes
+dsmcmc 0.0.5.9000 (2017/06/12)
+=========================
+
+## Minor Changes
+
+- Changes `tidy` summaries to be lowercase.
+- Added `broom` to Depends to make `tidy.mcmc.list` to work with `tidy`, since `@importFrom broom tidy` didn't really seem to work, and I want to be able to just call `tidy`.
+- no longer import from stats
+- Updated vignette to use `tidy` instead of `tidy.mcmc.list`
+- Vignette and README style changes in line with tidyverse style.
+  - Use `snake_case` where possible.
+  - Added more whitespace to functions.
+
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 dsmcmc 0.0.4 (2017/06/10)
 =========================
 

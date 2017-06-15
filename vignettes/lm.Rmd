@@ -8,6 +8,12 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+<<<<<<< Updated upstream
+
+The packages `dsmcmc` creates tidy summaries of Bayesian models, in the fashion of `broom`, with one important difference - `dsmcmc` uses a `data.table` instead of a `tibble`, due to the size of the output that is all too easily possible in Bayesian models.
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
   
   
 ```{r, echo = FALSE}
@@ -17,8 +23,22 @@ comment = "#>",
 fig.path = "README-",
 message=FALSE, warning=FALSE
 )
+<<<<<<< Updated upstream
+=======
 
 library(dsmcmc)
+=======
+
+The packages `mmcc` creates tidy summaries of Bayesian models, in the fashion of `broom`, with one important difference - `mmcc` uses a `data.table` instead of a `tibble`, due to the size of the output that is all too easily possible in Bayesian models.
+  
+The aim of this vignette is to demonstrate how to use the two key functions of `mmcc`, `mcmc_to_dt()` and `tidy` (which actually calls `mmcc:::tidy.mcmc.list` under the hood).
+
+```{r setup, echo = FALSE}
+knitr::opts_chunk$set(collapse = TRUE,
+                      message=FALSE, 
+                      warning=FALSE)
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 ```
 
 First, we simulate some data
@@ -76,8 +96,23 @@ samples <- coda.samples(model,
 
 We can now convert the posterior samples to a data table and summarise the regression parameters
 
+<<<<<<< Updated upstream
+``` {r rjags-summarise}
+library(dsmcmc)
+<<<<<<< Updated upstream
+=======
+library(broom)
+=======
+<<<<<<< Updated upstream
 ``` {r}
 library(dsmcmc)
+=======
+``` {r rjags-summarise}
+library(mmcc)
+# library(broom)
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 samples_dt <- mcmc_to_dt(samples)
 samples_dt
@@ -105,11 +140,27 @@ y_dt
 
 Now we'll generate a plot that shows the data, a 95% credible interval for the predictions, ${\hat{\boldsymbol{y}}}_{pred}$, and a 95% credible interval for their means, ${\hat{\boldsymbol{\mu}}}_{pred}$.
 
+<<<<<<< Updated upstream
+``` {r dsmcmc-plot-cr-i, fig.align="center", echo=F}
+=======
+<<<<<<< Updated upstream
 ``` {r, fig.align="center", echo=F}
 ggplot(data=dat,
        aes(x=x)) +
     geom_point(aes(y=y)) +
     geom_ribbon(aes(ymin = `2.5%`,
+=======
+``` {r mmcc-plot-cr-i, fig.align="center", echo=F}
+>>>>>>> Stashed changes
+ggplot(data = dat,
+       aes(x = x)) +
+    geom_point(aes(y = y)) +
+    geom_ribbon(data = mu_dt,
+                aes(ymin = `2.5%`,
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
                     ymax = `97.5%`),
                 fill = "salmon",
                 alpha = 0.5,
@@ -126,7 +177,15 @@ ggplot(data=dat,
 
 If we tidy the `samples` object, we can look at the distribution of values
 
+<<<<<<< Updated upstream
+``` {r dsmcmc-value-distr, fig.height=2, fig.width=7}
+=======
+<<<<<<< Updated upstream
 ``` {r, fig.height=2, fig.width=7}
+=======
+``` {r mmcc-value-distr, fig.height=2, fig.width=7}
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 tidy_samples <- mcmc_to_dt(samples, 
                            colnames = c("beta.0", "beta.1", "tau.y"))
 

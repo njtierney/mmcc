@@ -1,14 +1,34 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-dsmcmc
-======
 
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/njtierney/dsmcmc?branch=master&svg=true)](https://ci.appveyor.com/project/njtierney/dsmcmc) [![Travis-CI Build Status](https://travis-ci.org/njtierney/dsmcmc.svg?branch=master)](https://travis-ci.org/njtierney/dsmcmc) [![Coverage Status](https://img.shields.io/codecov/c/github/njtierney/dsmcmc/master.svg)](https://codecov.io/github/njtierney/dsmcmc?branch=master)
+<<<<<<< Updated upstream
+    ## Loading required package: broom
+
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+dsmcmc
+=============
+
+mmcc
+====
+>>>>>>> Stashed changes
+
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/njtierney/mmcc?branch=master&svg=true)](https://ci.appveyor.com/project/njtierney/mmcc) [![Travis-CI Build Status](https://travis-ci.org/njtierney/mmcc.svg?branch=master)](https://travis-ci.org/njtierney/mmcc) [![Coverage Status](https://img.shields.io/codecov/c/github/njtierney/mmcc/master.svg)](https://codecov.io/github/njtierney/mmcc?branch=master)
 
 **License:** [MIT](https://opensource.org/licenses/MIT)
 
-ds mcmc provides custom functions written in data.table for tidying up mcmc.list objects.
 
+
+<<<<<<< Updated upstream
+dsmcmc provides custom functions written in data.table for tidying up mcmc.list objects.
+=======
+<<<<<<< Updated upstream
+ds mcmc provides custom functions written in data.table for tidying up mcmc.list objects.
+=======
+mmcc provides custom functions written in data.table for tidying up mcmc.list objects.
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 ``` r
 library(dsmcmc)
 ```
@@ -28,6 +48,14 @@ head(data.frame(line$line1))
 #> 5 3.70544  0.490437  1.362130
 #> 6 3.57910  0.206970  1.043500
 
+<<<<<<< Updated upstream
+library(dsmcmc)
+=======
+<<<<<<< Updated upstream
+=======
+library(mmcc)
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 mcmc_to_dt(line)
 #>       iteration chain parameter    value
 #>    1:         1     1     alpha 7.173130
@@ -62,7 +90,7 @@ tidy.mcmc.list(line, chain = TRUE, colnames=c("alpha"))
 #> 2:     alpha     2 2.992514 0.4643476 1.965040 3.063630 3.890256
 ```
 
-This may be useful if we want to make a plot that shows how a given parameter varies from chain to chain
+This may be useful if we want to make a plot that shows how a given parameter varies from chain to chain.
 
 ``` r
 library(ggplot2)
@@ -87,26 +115,19 @@ Install from github using:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("njtierney/dsmcmc")
+devtools::install_github("njtierney/mmcc")
 ```
 
-Why dsmcmc?
-===========
+Why mmcc?
+=========
 
 Full credit does to [Sam Clifford](https://samclifford.info/) for the name.
 
-To lift directly from [wikipedia](https://en.wikipedia.org/wiki/Dal_Segno):
+To quote Sam:
 
-> In music, D.S. al coda instructs the musician to go back to the sign, and when Al coda or To coda is reached jump to the coda symbol.
+> ...it's all about reshaping and manipulating mcmc chains...
 
-This package works with `coda.samples`, where it tidies the data, for each chain. This repetitive action of cleaning and repeating for each chain is where the inspiration from the name comes from.
-
-Additionally, it has several backronyms:
-
--   data science mcmc
--   descriptive statistics mcmc
-
-and so on.
+...therefore, mmcc
 
 Future work
 ===========

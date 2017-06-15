@@ -11,17 +11,25 @@ knitr::opts_chunk$set(
   fig.path = "README-"
 )
 
-library(dsmcmc)
+library(mmcc)
 ```
 
-# dsmcmc
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/njtierney/dsmcmc?branch=master&svg=true)](https://ci.appveyor.com/project/njtierney/dsmcmc)
-[![Travis-CI Build Status](https://travis-ci.org/njtierney/dsmcmc.svg?branch=master)](https://travis-ci.org/njtierney/dsmcmc)
-[![Coverage Status](https://img.shields.io/codecov/c/github/njtierney/dsmcmc/master.svg)](https://codecov.io/github/njtierney/dsmcmc?branch=master)
+# mmcc
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/njtierney/mmcc?branch=master&svg=true)](https://ci.appveyor.com/project/njtierney/mmcc)
+[![Travis-CI Build Status](https://travis-ci.org/njtierney/mmcc.svg?branch=master)](https://travis-ci.org/njtierney/mmcc)
+[![Coverage Status](https://img.shields.io/codecov/c/github/njtierney/mmcc/master.svg)](https://codecov.io/github/njtierney/mmcc?branch=master)
 
 **License:** [MIT](https://opensource.org/licenses/MIT)
 
+<<<<<<< Updated upstream
+dsmcmc provides custom functions written in data.table for tidying up mcmc.list objects.
+=======
+<<<<<<< Updated upstream
 ds mcmc provides custom functions written in data.table for tidying up mcmc.list objects.
+=======
+mmcc provides custom functions written in data.table for tidying up mcmc.list objects.
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 ``` {r, warning=F, message=F}
 library(dsmcmc)
@@ -29,12 +37,28 @@ library(dsmcmc)
 
 At this stage there are just two functions `mcmc_to_dt` that takes an `mcmc.list` object and turns it into a `data.table` of the format:
 
+<<<<<<< Updated upstream
+```{r show-dsmcmc}
+=======
+<<<<<<< Updated upstream
 ``` {r}
+=======
+```{r show-mmcc}
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 library(coda)
 data(line)
 
 head(data.frame(line$line1))
 
+<<<<<<< Updated upstream
+library(dsmcmc)
+=======
+<<<<<<< Updated upstream
+=======
+library(mmcc)
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 mcmc_to_dt(line)
 
 ```
@@ -74,25 +98,18 @@ Install from github using:
 
 ```{r eval = FALSE}
 # install.packages("devtools")
-devtools::install_github("njtierney/dsmcmc")
+devtools::install_github("njtierney/mmcc")
 ```
 
-# Why dsmcmc?
+# Why mmcc?
 
 Full credit does to [Sam Clifford](https://samclifford.info/) for the name. 
 
-To lift directly from [wikipedia](https://en.wikipedia.org/wiki/Dal_Segno):
+To quote Sam:
 
-> In music, D.S. al coda instructs the musician to go back to the sign, and when Al coda or To coda is reached jump to the coda symbol.
+> ...it's all about reshaping and manipulating mcmc chains...
 
-This package works with `coda.samples`, where it tidies the data, for each chain. This repetitive action of cleaning and repeating for each chain is where the inspiration from the name comes from.
-
-Additionally, it has several backronyms:
-
-- data science mcmc
-- descriptive statistics mcmc
-
-and so on.
+...therefore, mmcc
 
 # Future work
 
