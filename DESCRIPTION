@@ -20,4 +20,6 @@ Suggests: knitr,
     ggplot2,
     covr
 VignetteBuilder: knitr
-Depends: broom
+Depends:
+    R (>= 3.1.2),
+    broom
