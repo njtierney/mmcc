@@ -29,10 +29,25 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="reference/index.html">Reference</a>
+  <a href="/index.html">
+    <span class="fa fa-home fa-lg"></span>
+     
+  </a>
 </li>
 <li>
-  <a href="articles/index.html">Articles</a>
+  <a href="reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="articles/lm.html">Model summaries for a Bayesian linear regression</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="news/index.html">News</a>
@@ -108,17 +123,17 @@
 
 line_tidy &lt;-<span class="st"> </span><span class="kw">tidy</span>(line, <span class="dt">chain =</span> <span class="ot">TRUE</span>)
 
-<span class="kw">ggplot</span>(<span class="dt">data =</span> line_tidy, 
-       <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(chain), 
+<span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(<span class="dt">data =</span> line_tidy, 
+       <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> <span class="kw">factor</span>(chain), 
            <span class="dt">y =</span> mean)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_pointrange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> <span class="st">`</span><span class="dt">2.5%</span><span class="st">`</span>,
+<span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_linerange">geom_pointrange</a></span>(<span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">ymin =</span> <span class="st">`</span><span class="dt">2.5%</span><span class="st">`</span>,
                         <span class="dt">ymax =</span> <span class="st">`</span><span class="dt">97.5%</span><span class="st">`</span>)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span>parameter, 
+<span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/facet_wrap">facet_wrap</a></span>(<span class="op">~</span>parameter, 
                <span class="dt">nrow =</span> <span class="dv">1</span>, 
                <span class="dt">scales =</span> <span class="st">"free_y"</span>) <span class="op">+</span>
-<span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span>
-<span class="st">    </span><span class="kw">xlab</span>(<span class="st">"Chain"</span>) <span class="op">+</span>
-<span class="st">    </span><span class="kw">ylab</span>(<span class="st">"Value"</span>)</code></pre></div>
+<span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggtheme">theme_bw</a></span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Chain"</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Value"</span>)</code></pre></div>
 <p><img src="README-show-tidy-ggplot-1.png" width="672"></p>
 </div>
 <div id="installation" class="section level1">
@@ -126,7 +141,7 @@ line_tidy &lt;-<span class="st"> </span><span class="kw">tidy</span>(line, <span
 <a href="#installation" class="anchor"></a>Installation</h1>
 <p>Install from github using:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages("devtools")</span>
-devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"njtierney/mmcc"</span>)</code></pre></div>
+devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"njtierney/mmcc"</span>)</code></pre></div>
 </div>
 <div id="why-mmcc" class="section level1">
 <h1 class="hasAnchor">
@@ -156,8 +171,9 @@ devtools<span class="op">::</span><span class="kw">install_github</span>(<span c
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>License</h2>
-<p><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE">LICENSE</a></p>
+    <h2 class="hasAnchor">
+<a href="#sidebar" class="anchor"></a>License</h2>
+<p><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE.html">LICENSE</a></p>
 <h2>Developers</h2>
 <ul class="list-unstyled">
 <li>Nicholas Tierney <br><small class="roles"> Author, maintainer </small> </li>
