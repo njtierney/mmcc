@@ -2,6 +2,7 @@
 
 S3method(tidy,mcmc.list)
 export(mcmc_to_dt)
+export(mcmc_to_dt_stan)
 export(thin_dt)
 import(data.table)
 importFrom(broom,tidy)
