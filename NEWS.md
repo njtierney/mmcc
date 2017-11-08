@@ -1,3 +1,10 @@
+mmcc 0.0.6.9100 (2017/11/08)
+=========================
+
+## New Features
+
+- added draft function for stan - mcmc_to_dt_stan, for cleaning up output from STAN.
+
 mmcc 0.0.6.9001 (2017/06/13)
 =========================
 
