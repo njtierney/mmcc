@@ -1,0 +1,109 @@
+---
+title: "Using mmcc with greta"
+author: "Nicholas Tierney"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using mmcc with greta}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r fit-greta}
+reticulate::use_virtualenv("r-tensorflow")
+# ignore this ^^ for the moment
+library(greta)
+
+# data
+x <- as_data(iris$Petal.Length)
+y <- as_data(iris$Sepal.Length)
+
+# variables and priors
+int <- normal(0, 1)
+coef <- normal(0, 3)
+sd <- student(3, 0, 1, truncation = c(0, Inf))
+
+# operations
+mean <- int + coef * x
+
+# likelihood
+distribution(y) <- normal(mean, sd)
+
+# defining the model
+m <- model(int, coef, sd)
+
+# sampling
+draws <- mcmc(m, 
+              n_samples = 1000,
+              chains = 4)
+
+```
+
+We can get a one-line summary of the model with `glance`
+
+```{r glance-model}
+
+library(mmcc)
+
+glance(draws)
+
+```
+
+We can also get a one-coefficient per row summary using `tidy`:
+
+```{r tidy-model}
+
+tidy(draws)
+
+```
+
+Now we can neaten up the draws with `mcmc_to_dt` to facilitate plotting
+
+```{r show-draws}
+
+neat_draws <- mmcc::mcmc_to_dt(draws)
+
+neat_draws
+
+```
+
+```{r ggplot2-examples}
+
+library(ggplot2)
+
+ggplot(neat_draws[parameter == "int"],
+       aes(x = iteration,
+           y = value,
+           colour = chain)) + 
+    geom_line()
+
+ggplot(neat_draws[parameter == "sd"],
+       aes(x = value,
+           colour = chain)) + 
+    geom_density()
+
+ggplot(neat_draws[parameter == "coef"],
+       aes(x = value,
+               colour = chain)) + 
+    geom_density()
+
+```
+
+Or we can use some examples from bayesplot:
+
+```{r bayesplot-examples}
+
+bayesplot::mcmc_hist(draws)
+bayesplot::mcmc_dens(draws)
+bayesplot::mcmc_trace(draws)
+
+```
+
+

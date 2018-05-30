@@ -16,9 +16,7 @@ The aim of this vignette is to demonstrate how to use the two key functions of `
 ```{r setup, echo = FALSE}
 knitr::opts_chunk$set(
 collapse = TRUE,
-comment = "#>",
-fig.path = "README-",
-message=FALSE, warning=FALSE
+comment = "#>"
 )
 ```
 
