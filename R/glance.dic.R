@@ -26,5 +26,5 @@ glance.dic <- function(x){
     dic.return <- dic.table[ , lapply(.SD, sum), .SDcols = c("deviance", "penalty") , by=type]
     dic.return[ , deviance.penalised := penalty + deviance  ]
 
-    return(dic.return)
+    return(as.data.frame(dic.return))
 }
