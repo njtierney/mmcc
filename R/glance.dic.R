@@ -15,7 +15,7 @@
 #' @export
 glance.dic <- function(x){
 
-    dic.table <- with(x,
+    dic_table <- with(x,
                       data.table::data.table(
                           deviance = as.numeric(deviance),
                           penalty = as.numeric(penalty),
@@ -23,8 +23,8 @@ glance.dic <- function(x){
                       )
     )
 
-    dic.return <- dic.table[ , lapply(.SD, sum), .SDcols = c("deviance", "penalty") , by=type]
-    dic.return[ , deviance.penalised := penalty + deviance  ]
+    dic_return <- dic_table[ , lapply(.SD, sum), .SDcols = c("deviance", "penalty") , by=type]
+    dic_return[ , deviance.penalised := penalty + deviance  ]
 
-    return(as.data.frame(dic.return))
+    return(as.data.frame(dic_return))
 }
