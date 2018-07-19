@@ -32,4 +32,5 @@ fit1 <- stan(model_code = scode, iter = 10, verbose = FALSE)
  mcmc_to_dt_stan(fit1)
  }
 
+
 }

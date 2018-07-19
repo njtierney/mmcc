@@ -31,5 +31,5 @@ a data.table containing parameter summaries
   over all chains.
 }
 \author{
-Sam Clifford, \email{samuel.clifford@qut.edu.au}
+Sam Clifford, \email{sj.clifford@gmail.com}
 }

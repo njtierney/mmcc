@@ -13,10 +13,10 @@
 a one-row dataframe of summary information of the dic samples
 }
 \description{
-This provides a one-row dataframe with information on the overall deviance,
-  effective number of parameters (when `type` was pD) or optimism (when
-  `type` was popt) and resulting penalised deviance
+This provides a one-row dataframe (`data.table`) with information on the
+ overall deviance, effective number of parameters (when `type` was pD) or
+ optimism (when `type` was popt), and resulting penalised deviance.
 }
 \author{
-Sam Clifford, \email{samuel.clifford@qut.edu.au}
+Sam Clifford, \email{sj.clifford@gmail.com}
 }
