@@ -11,6 +11,10 @@
 #' @return a data.table dataframe
 #' @export
 #'
+#' @examples
+#' library(coda)
+#' data(line)
+#' mcmc_to_dt(line)
 mcmc_to_dt <- function(mcmc_object, colnames=NULL){
 
   # how many chains?

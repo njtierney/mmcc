@@ -20,3 +20,8 @@ a data.table dataframe
 `mcmc_to_dt` use data.table to return a tidy dataframe from an "mcmc.list"
   object
 }
+\examples{
+library(coda)
+data(line)
+mcmc_to_dt(line)
+}
