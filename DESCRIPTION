@@ -1,9 +1,16 @@
 Package: mmcc
 Type: Package
 Title: tidy mcmc.list using data.table
-Version: 0.0.6.9111
-Authors@R: c(person("Nicholas", "Tierney", , "nicholas.tierney@gmail.com", role = c("aut", "cre")),
-             person("Sam", "Clifford", , "sj.clifford@gmail.com", role = c("aut")))
+Version: 0.0.7.9000
+Authors@R: c(
+  person("Nicholas", "Tierney", 
+         role = c("aut", "cre"),
+         email = "nicholas.tierney@gmail.com", 
+         comment = c(ORCID = "https://orcid.org/0000-0003-1460-8722")),
+  person("Sam", "Clifford", 
+         role = c("aut"),
+         email = "sj.clifford@gmail.com", 
+         comment = c(ORCID = "https://orcid.org/0000-0002-3774-3882"))
 Description: mmcc makes it easy and FAST to tidy up and visualise
     mcmc samples from a mcmc.list. It uses data.table to make it so.
     It might in the future use plotly to make interactive and FAST

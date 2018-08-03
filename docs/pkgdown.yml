@@ -1,0 +1,10 @@
+pandoc: 2.2.1
+pkgdown: 1.1.0
+pkgdown_sha: ~
+articles:
+  lm: lm.html
+  using-mmcc-w-greta: using-mmcc-w-greta.html
+urls:
+  reference: http://mmcc.njtierney.com//reference
+  article: http://mmcc.njtierney.com//articles
+

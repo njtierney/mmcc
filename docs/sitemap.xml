@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://mmcc.njtierney.com//index.html</loc>
+  </url>
+  <url>
+    <loc>http://mmcc.njtierney.com//reference/glance.dic.html</loc>
+  </url>
+  <url>
+    <loc>http://mmcc.njtierney.com//reference/glance.mcmc.list.html</loc>
+  </url>
+  <url>
+    <loc>http://mmcc.njtierney.com//reference/mcmc_to_dt.html</loc>
+  </url>
+  <url>
+    <loc>http://mmcc.njtierney.com//reference/mcmc_to_dt_stan.html</loc>
+  </url>
+  <url>
+    <loc>http://mmcc.njtierney.com//reference/thin_dt.html</loc>
+  </url>
+  <url>
+    <loc>http://mmcc.njtierney.com//reference/tidy.mcmc.list.html</loc>
+  </url>
+  <url>
+    <loc>http://mmcc.njtierney.com//articles/lm.html</loc>
+  </url>
+  <url>
+    <loc>http://mmcc.njtierney.com//articles/using-mmcc-w-greta.html</loc>
+  </url>
+</urlset>

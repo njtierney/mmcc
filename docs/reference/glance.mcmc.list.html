@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MCMC tidiers (draft) for STAN — mcmc_to_dt_stan • mmcc</title>
+<title>Glance upon your mcmclist to get summary information — glance.mcmc.list • mmcc</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,11 @@
 
 
 
-<meta property="og:title" content="MCMC tidiers (draft) for STAN — mcmc_to_dt_stan" />
+<meta property="og:title" content="Glance upon your mcmclist to get summary information — glance.mcmc.list" />
 
-<meta property="og:description" content="MCMC tidiers (draft) for STAN" />
+<meta property="og:description" content="This provides a one-row dataframe with information on number of chains, the
+    number of variables, the number of iterations, and the lower and upper
+    values for effective sample size (ess), and rhat." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -95,51 +97,42 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>MCMC tidiers (draft) for STAN</h1>
+    <h1>Glance upon your mcmclist to get summary information</h1>
     
-    <div class="hidden name"><code>mcmc_to_dt_stan.Rd</code></div>
+    <div class="hidden name"><code>glance.mcmc.list.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>MCMC tidiers (draft) for STAN</p>
+    <p>This provides a one-row dataframe with information on number of chains, the
+    number of variables, the number of iterations, and the lower and upper
+    values for effective sample size (ess), and rhat.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>mcmc_to_dt_stan</span>(<span class='no'>stan_model</span>)</pre>
+    <pre class="usage"><span class='co'># S3 method for mcmc.list</span>
+<span class='fu'>glance</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>stan_model</th>
-      <td><p>a stan model</p></td>
+      <th>draws</th>
+      <td><p>an mcmc.list object</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a tidy dataframe</p>
+    <p>a one-row dataframe of summary information of the mcmc model</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='co'>#### example 1</span>
-<span class='fu'>library</span>(<span class='no'>rstan</span>)
-<span class='no'>scode</span> <span class='kw'>&lt;-</span> <span class='st'>"
-parameters {
-real y[2];
-}
-model {
-y[1] ~ normal(0, 1);
-y[2] ~ double_exponential(0, 2);
-}
-"</span>
-<span class='no'>fit1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/rstan/topics/stan'>stan</a></span>(<span class='kw'>model_code</span> <span class='kw'>=</span> <span class='no'>scode</span>, <span class='kw'>iter</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
- <span class='fu'>mcmc_to_dt_stan</span>(<span class='no'>fit1</span>)
-
-<span class='co'># }</span><div class='input'>
-
+    <pre class="examples"><div class='input'>
+<span class='fu'>library</span>(<span class='no'>coda</span>)
+<span class='fu'>data</span>(<span class='no'>line</span>)
+<span class='fu'>glance</span>(<span class='no'>line</span>)</div><div class='output co'>#&gt;   n_chains n_iter n_var ess_lower ess_upper rhat_lower rhat_upper
+#&gt; 1        2    200     3  167.5889  455.3178   1.000695   1.037599</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

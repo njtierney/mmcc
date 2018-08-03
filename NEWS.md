@@ -1,3 +1,11 @@
+mmcc 0.0.7.9000 (2018/08/03)
+=========================
+
+## New Features
+
+- Added `greta` vignette
+- Added examples to the thin_dt, glance.mcmc.list, and other functions.
+
 mmcc 0.0.6.9100 (2017/11/08)
 =========================
 

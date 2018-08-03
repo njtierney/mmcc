@@ -6,25 +6,34 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>All news • mmcc</title>
+<title>Changelog • mmcc</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Changelog" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,30 +56,22 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">mmcc</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">mmcc</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.7.9000</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="..//index.html">
-    <span class="fa fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/lm.html">Model summaries for a Bayesian linear regression</a>
-    </li>
-  </ul>
+<li>
+  <a href="../articles/lm.html">Model summaries for a Bayesian linear regression</a>
+</li>
+<li>
+  <a href="../articles/using-mmcc-w-greta.html">Using mmcc with greta</a>
 </li>
 <li>
   <a href="../news/index.html">News</a>
@@ -80,6 +81,7 @@
       <ul class="nav navbar-nav navbar-right">
         
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -87,27 +89,38 @@
       
       </header>
 
-      <div class="row">
-
-  <div class="col-md-9">
+<div class="row">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Change log <small>All releases</small></h1>
+      <h1>Changelog <small></small></h1>
+      
     </div>
 
-    <div class="contents">
-    <div id="mmcc-0-0-6-9100-20171108" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mmcc-0-0-6-9100-20171108" class="anchor"></a>mmcc 0.0.6.9100 (2017/11/08)</h1>
+    <div id="mmcc-0-0-7-9000-20180803" class="section level1">
+<h1 class="page-header">
+<a href="#mmcc-0-0-7-9000-20180803" class="anchor"></a>mmcc 0.0.7.9000 (2018/08/03)</h1>
 <div id="new-features" class="section level2">
 <h2 class="hasAnchor">
 <a href="#new-features" class="anchor"></a>New Features</h2>
+<ul>
+<li>Added <code>greta</code> vignette</li>
+<li>Added examples to the thin_dt, glance.mcmc.list, and other functions.</li>
+</ul>
+</div>
+</div>
+    <div id="mmcc-0-0-6-9100-20171108" class="section level1">
+<h1 class="page-header">
+<a href="#mmcc-0-0-6-9100-20171108" class="anchor"></a>mmcc 0.0.6.9100 (2017/11/08)</h1>
+<div id="new-features-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features-1" class="anchor"></a>New Features</h2>
 <ul>
 <li>added draft function for stan - mcmc_to_dt_stan, for cleaning up output from STAN.</li>
 </ul>
 </div>
 </div>
     <div id="mmcc-0-0-6-9001-20170613" class="section level1">
-<h1 class="hasAnchor">
+<h1 class="page-header">
 <a href="#mmcc-0-0-6-9001-20170613" class="anchor"></a>mmcc 0.0.6.9001 (2017/06/13)</h1>
 <div id="minor-changes" class="section level2">
 <h2 class="hasAnchor">
@@ -118,7 +131,7 @@
 </div>
 </div>
     <div id="dsmcmc-0-0-5-9001-20170613" class="section level1">
-<h1 class="hasAnchor">
+<h1 class="page-header">
 <a href="#dsmcmc-0-0-5-9001-20170613" class="anchor"></a>dsmcmc 0.0.5.9001 (2017/06/13)</h1>
 <div id="minor-changes-1" class="section level2">
 <h2 class="hasAnchor">
@@ -131,29 +144,32 @@
 </div>
 </div>
     <div id="dsmcmc-0-0-5-9000-20170612" class="section level1">
-<h1 class="hasAnchor">
+<h1 class="page-header">
 <a href="#dsmcmc-0-0-5-9000-20170612" class="anchor"></a>dsmcmc 0.0.5.9000 (2017/06/12)</h1>
 <div id="minor-changes-2" class="section level2">
 <h2 class="hasAnchor">
 <a href="#minor-changes-2" class="anchor"></a>Minor Changes</h2>
 <ul>
 <li>Changes <code>tidy</code> summaries to be lowercase.</li>
-<li>Added <code>broom</code> to Depends to make <code>tidy.mcmc.list</code> to work with <code>tidy</code>, since <code>@importFrom broom tidy</code> didn’t really seem to work, and I want to be able to just call <code>tidy</code>.</li>
+<li>Added <code>broom</code> to Depends to make <code>tidy.mcmc.list</code> to work with <code>tidy</code>, since <code><a href='http://github.com/importFrom'>@importFrom</a> broom tidy</code> didn’t really seem to work, and I want to be able to just call <code>tidy</code>.</li>
 <li>no longer import from stats</li>
 <li>Updated vignette to use <code>tidy</code> instead of <code>tidy.mcmc.list</code>
 </li>
-<li>Vignette and README style changes in line with tidyverse style.</li>
+<li>Vignette and README style changes in line with tidyverse style.
+<ul>
 <li>Use <code>snake_case</code> where possible.</li>
 <li>Added more whitespace to functions.</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
     <div id="dsmcmc-0-0-4-20170610" class="section level1">
-<h1 class="hasAnchor">
+<h1 class="page-header">
 <a href="#dsmcmc-0-0-4-20170610" class="anchor"></a>dsmcmc 0.0.4 (2017/06/10)</h1>
-<div id="new-features-1" class="section level2">
+<div id="new-features-2" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features-1" class="anchor"></a>New Features</h2>
+<a href="#new-features-2" class="anchor"></a>New Features</h2>
 <ul>
 <li>New vignette showing linear regression</li>
 <li>Suggests now includes <code>rjags</code> and <code>ggplot2</code> for vignette</li>
@@ -162,11 +178,11 @@
 </div>
 </div>
     <div id="dsmcmc-0-0-3-20170610" class="section level1">
-<h1 class="hasAnchor">
+<h1 class="page-header">
 <a href="#dsmcmc-0-0-3-20170610" class="anchor"></a>dsmcmc 0.0.3 (2017/06/10)</h1>
-<div id="new-features-2" class="section level2">
+<div id="new-features-3" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features-2" class="anchor"></a>New Features</h2>
+<a href="#new-features-3" class="anchor"></a>New Features</h2>
 <ul>
 <li>Summary of <code>mcmc.list</code> now done with a <code>tidy</code> method</li>
 <li>Can now select which columns are to be tidied/summarised</li>
@@ -176,24 +192,24 @@
 </div>
 </div>
     <div id="dsmcmc-0-0-1-20160919" class="section level1">
-<h1 class="hasAnchor">
+<h1 class="page-header">
 <a href="#dsmcmc-0-0-1-20160919" class="anchor"></a>dsmcmc 0.0.1 (2016/09/19)</h1>
-<div id="new-features-3" class="section level2">
+<div id="new-features-4" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features-3" class="anchor"></a>New features</h2>
+<a href="#new-features-4" class="anchor"></a>New features</h2>
 <ul>
 <li>Added <code>tidy_mcmc</code> to tidy up <code>mcmc.list</code> objects</li>
 <li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
 </ul>
 </div>
 </div>
-    </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#mmcc-0-0-7-9000-20180803">0.0.7.9000</a></li>
         <li><a href="#mmcc-0-0-6-9100-20171108">0.0.6.9100</a></li>
         <li><a href="#mmcc-0-0-6-9001-20170613">0.0.6.9001</a></li>
         <li><a href="#dsmcmc-0-0-5-9001-20170613">0.0.5.9001</a></li>
@@ -209,15 +225,18 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Nicholas Tierney, Sam Clifford.</p>
+  <p>Developed by .</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+
