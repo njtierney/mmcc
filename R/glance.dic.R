@@ -13,7 +13,7 @@
 #' @import data.table
 #' @importFrom broom glance
 #' @export
-glance.dic <- function(x){
+glance.dic <- function(x, ...){
 
     dic_table <- with(x,
                       data.table::data.table(
@@ -23,7 +23,11 @@ glance.dic <- function(x){
                       )
     )
 
-    dic_return <- dic_table[ , lapply(.SD, sum), .SDcols = c("deviance", "penalty") , by=type]
+    dic_return <- dic_table[ , lapply(.SD,
+                                      sum),
+                             .SDcols = c("deviance", "penalty") ,
+                             by = type]
+
     dic_return[ , deviance.penalised := penalty + deviance  ]
 
     return(dic_return[])

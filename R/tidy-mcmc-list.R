@@ -23,6 +23,15 @@
 #'
 #' @export
 #'
+#' @examples
+#' library(coda)
+#' data(line)
+#' tidy(line)
+#' Optionally ask for a subset of parameters with a vector of `colnames`,
+#' and summarise for each chain:
+#' tidy(line,
+#'      chain = TRUE,
+#'      colnames=c("alpha"))
 tidy.mcmc.list <- function(x,
                            conf_level = 0.95,
                            chain = FALSE,

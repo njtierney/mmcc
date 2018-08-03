@@ -4,11 +4,11 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, echo = FALSE}
+```{r setup, echo = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "README-"
+  fig.path = "man/figures/README-"
 )
 
 library(mmcc)
@@ -21,9 +21,21 @@ library(mmcc)
 
 **License:** [MIT](https://opensource.org/licenses/MIT)
 
+
 mmcc provides custom functions written in data.table for tidying up mcmc.list objects.
 
-At this stage there are just two functions, `mcmc_to_dt` and `tidy.mcmc.list` - called with `tidy`.
+
+# Installation
+
+Install from github using:
+
+```{r install, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("njtierney/mmcc")
+```
+
+
+# Using mmcc
 
 `mcmc_to_dt` takes an `mcmc.list` object and turns it into a `data.table` of the format:
 
@@ -32,9 +44,11 @@ library(coda)
 data(line)
 
 head(data.frame(line$line1))
-
 library(mmcc)
-mcmc_to_dt(line)
+
+mcmc_dt <- mcmc_to_dt(line)
+
+mcmc_dt
 
 ```
 
@@ -73,18 +87,9 @@ ggplot(data = line_tidy,
     ylab("Value")
 ```
 
-# Installation
-
-Install from github using:
-
-```{r eval = FALSE}
-# install.packages("devtools")
-devtools::install_github("njtierney/mmcc")
-```
-
 # Why mmcc?
 
-Full credit does to [Sam Clifford](https://samclifford.info/) for the name. 
+Full credit does to [Sam Clifford](https://www.samclifford.info/) for the name. 
 
 To quote Sam:
 

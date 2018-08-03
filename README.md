@@ -1,19 +1,35 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
     ## Loading required package: broom
 
-mmcc
-====
+# mmcc
 
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/njtierney/mmcc?branch=master&svg=true)](https://ci.appveyor.com/project/njtierney/mmcc) [![Travis-CI Build Status](https://travis-ci.org/njtierney/mmcc.svg?branch=master)](https://travis-ci.org/njtierney/mmcc) [![Coverage Status](https://img.shields.io/codecov/c/github/njtierney/mmcc/master.svg)](https://codecov.io/github/njtierney/mmcc?branch=master)
+[![AppVeyor Build
+Status](https://ci.appveyor.com/api/projects/status/github/njtierney/mmcc?branch=master&svg=true)](https://ci.appveyor.com/project/njtierney/mmcc)
+[![Travis-CI Build
+Status](https://travis-ci.org/njtierney/mmcc.svg?branch=master)](https://travis-ci.org/njtierney/mmcc)
+[![Coverage
+Status](https://img.shields.io/codecov/c/github/njtierney/mmcc/master.svg)](https://codecov.io/github/njtierney/mmcc?branch=master)
 
 **License:** [MIT](https://opensource.org/licenses/MIT)
 
-mmcc provides custom functions written in data.table for tidying up mcmc.list objects.
+mmcc provides custom functions written in data.table for tidying up
+mcmc.list objects.
 
-At this stage there are just two functions, `mcmc_to_dt` and `tidy.mcmc.list` - called with `tidy`.
+# Installation
 
-`mcmc_to_dt` takes an `mcmc.list` object and turns it into a `data.table` of the format:
+Install from github using:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("njtierney/mmcc")
+```
+
+# Using mmcc
+
+`mcmc_to_dt` takes an `mcmc.list` object and turns it into a
+`data.table` of the format:
 
 ``` r
 library(coda)
@@ -27,9 +43,11 @@ head(data.frame(line$line1))
 #> 4 3.31522  1.182720  0.662879
 #> 5 3.70544  0.490437  1.362130
 #> 6 3.57910  0.206970  1.043500
-
 library(mmcc)
-mcmc_to_dt(line)
+
+mcmc_dt <- mcmc_to_dt(line)
+
+mcmc_dt
 #>       iteration chain parameter    value
 #>    1:         1     1     alpha 7.173130
 #>    2:         2     1     alpha 2.952530
@@ -44,7 +62,9 @@ mcmc_to_dt(line)
 #> 1200:       200     2     sigma 0.639787
 ```
 
-`tidy.mcmc.list` takes an `mcmc.list`, turns it into a `data.table` and summarises it in terms of each parameter's mean, median, standard deviation and credible interval with level given by `conf.level`:
+`tidy.mcmc.list` takes an `mcmc.list`, turns it into a `data.table` and
+summarises it in terms of each parameter’s mean, median, standard
+deviation and credible interval with level given by `conf.level`:
 
 ``` r
 tidy(line)
@@ -54,7 +74,8 @@ tidy(line)
 #> 3:     sigma 0.9680519 0.7413014 0.4249618 0.7911975 2.559520
 ```
 
-We can also optionally ask for a subset of the parameters with a vector of `colnames` and summarise for each chain:
+We can also optionally ask for a subset of the parameters with a vector
+of `colnames` and summarise for each chain:
 
 ``` r
 tidy(line, 
@@ -65,7 +86,8 @@ tidy(line,
 #> 2:     alpha     2 2.992514 0.4643476 1.965040 3.063630 3.890256
 ```
 
-This may be useful if we want to make a plot that shows how a given parameter varies from chain to chain.
+This may be useful if we want to make a plot that shows how a given
+parameter varies from chain to chain.
 
 ``` r
 library(ggplot2)
@@ -85,36 +107,27 @@ ggplot(data = line_tidy,
     ylab("Value")
 ```
 
-![](README-show-tidy-ggplot-1.png)
+![](man/figures/README-show-tidy-ggplot-1.png)<!-- -->
 
-Installation
-============
+# Why mmcc?
 
-Install from github using:
-
-``` r
-# install.packages("devtools")
-devtools::install_github("njtierney/mmcc")
-```
-
-Why mmcc?
-=========
-
-Full credit does to [Sam Clifford](https://samclifford.info/) for the name.
+Full credit does to [Sam Clifford](https://www.samclifford.info/) for
+the name.
 
 To quote Sam:
 
-> ...it's all about reshaping and manipulating mcmc chains...
+> …it’s all about reshaping and manipulating mcmc chains…
 
-...therefore, mmcc
+…therefore, mmcc
 
-Future work
-===========
+# Future work
 
--   Create summaries for each parameter
--   Perform diagnostic summaries for convergence
--   provide a suite of plotting in plotly, for speed, and interactivity.
+  - Create summaries for each parameter
+  - Perform diagnostic summaries for convergence
+  - provide a suite of plotting in plotly, for speed, and interactivity.
 
 ### Code of Conduct
 
-Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+Please note that this project is released with a [Contributor Code of
+Conduct](CONDUCT.md). By participating in this project you agree to
+abide by its terms.

@@ -17,3 +17,11 @@ a data.table dataframe
 \description{
 post-hoc thinning of MCMC chains which have been converted to a data.table
 }
+\examples{
+library(coda)
+data(line)
+mcmc_dt <- mcmc_to_dt(line)
+thin_dt(mcmc_dt, thin = 10)
+thin_dt(mcmc_dt, thin = 2)
+thin_dt(mcmc_dt, thin = 20)
+}
