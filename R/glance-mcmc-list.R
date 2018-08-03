@@ -10,6 +10,11 @@
 #' @export
 #'
 #' @examples
+#'
+#' library(coda)
+#' data(line)
+#' glance(line)
+#'
 glance.mcmc.list <- function(x, ...){
     rhat <- coda::gelman.diag(x, ...)
 

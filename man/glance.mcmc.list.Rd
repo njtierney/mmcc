@@ -17,3 +17,10 @@ This provides a one-row dataframe with information on number of chains, the
     number of variables, the number of iterations, and the lower and upper
     values for effective sample size (ess), and rhat.
 }
+\examples{
+
+library(coda)
+data(line)
+glance(line)
+
+}
