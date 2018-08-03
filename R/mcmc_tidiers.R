@@ -8,7 +8,7 @@
 #' @param colnames which parameters we want from `mcmc_object`, if `NULL` then all
 #'   columns get selected
 #'
-#' @return a data.table dataframe
+#' @return a tidy data.table dataframe of MCMC sample
 #' @export
 #'
 #' @examples

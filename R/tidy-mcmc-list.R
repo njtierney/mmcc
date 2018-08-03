@@ -14,7 +14,7 @@
 #'   columns get selected
 #' @param ... extra arguments
 #'
-#' @author Sam Clifford, \email{samuel.clifford@@qut.edu.au}
+#' @author Sam Clifford, \email{sj.clifford@@gmail.com}
 #'
 #' @import data.table
 #' @importFrom broom tidy

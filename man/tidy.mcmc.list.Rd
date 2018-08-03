@@ -41,5 +41,5 @@ tidy(line,
      colnames=c("alpha"))
 }
 \author{
-Sam Clifford, \email{samuel.clifford@qut.edu.au}
+Sam Clifford, \email{sj.clifford@gmail.com}
 }

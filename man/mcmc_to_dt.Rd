@@ -14,7 +14,7 @@ fitting a model using `jags.model()`, and `coda.samples`}
 columns get selected}
 }
 \value{
-a data.table dataframe
+a tidy data.table dataframe of MCMC sample
 }
 \description{
 `mcmc_to_dt` use data.table to return a tidy dataframe from an "mcmc.list"
