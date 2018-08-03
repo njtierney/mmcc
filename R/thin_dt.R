@@ -7,7 +7,13 @@
 #'
 #' @return a data.table dataframe
 #' @export
-#'
+#' @examples
+#' library(coda)
+#' data(line)
+#' mcmc_dt <- mcmc_to_dt(line)
+#' thin_dt(mcmc_dt, thin = 10)
+#' thin_dt(mcmc_dt, thin = 2)
+#' thin_dt(mcmc_dt, thin = 20)
 thin_dt <- function(dt, thin=1){
 
     dt_thinned <- dt[  iteration %% thin == 1 , ]
