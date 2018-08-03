@@ -43,9 +43,11 @@ head(data.frame(line$line1))
 #> 4 3.31522  1.182720  0.662879
 #> 5 3.70544  0.490437  1.362130
 #> 6 3.57910  0.206970  1.043500
-
 library(mmcc)
-mcmc_to_dt(line)
+
+mcmc_dt <- mcmc_to_dt(line)
+
+mcmc_dt
 #>       iteration chain parameter    value
 #>    1:         1     1     alpha 7.173130
 #>    2:         2     1     alpha 2.952530

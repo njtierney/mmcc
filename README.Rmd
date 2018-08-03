@@ -46,7 +46,9 @@ data(line)
 head(data.frame(line$line1))
 library(mmcc)
 
-mcmc_to_dt(line)
+mcmc_dt <- mcmc_to_dt(line)
+
+mcmc_dt
 
 ```
 
