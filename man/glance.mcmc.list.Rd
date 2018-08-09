@@ -7,7 +7,9 @@
 \method{glance}{mcmc.list}(x, ...)
 }
 \arguments{
-\item{draws}{an mcmc.list object}
+\item{x}{an mcmc.list object}
+
+\item{...}{(optional) additional arguments to pass}
 }
 \value{
 a one-row dataframe of summary information of the mcmc model

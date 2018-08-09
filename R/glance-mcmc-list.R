@@ -4,7 +4,8 @@
 #'     number of variables, the number of iterations, and the lower and upper
 #'     values for effective sample size (ess), and rhat.
 #'
-#' @param draws an mcmc.list object
+#' @param x an mcmc.list object
+#' @param ... (optional) additional arguments to pass
 #'
 #' @return a one-row dataframe of summary information of the mcmc model
 #' @export

@@ -27,8 +27,8 @@
 #' library(coda)
 #' data(line)
 #' tidy(line)
-#' Optionally ask for a subset of parameters with a vector of `colnames`,
-#' and summarise for each chain:
+#' # Optionally ask for a subset of parameters with a vector of `colnames`,
+#' # and summarise for each chain:
 #' tidy(line,
 #'      chain = TRUE,
 #'      colnames=c("alpha"))
