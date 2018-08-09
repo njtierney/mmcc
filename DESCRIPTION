@@ -21,7 +21,6 @@ LazyData: true
 Imports:
     data.table,
     magrittr,
-    coda,
     purrr,
     dplyr,
     tidyr,
