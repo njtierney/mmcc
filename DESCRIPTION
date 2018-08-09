@@ -29,12 +29,12 @@ Imports:
 RoxygenNote: 6.1.0
 Suggests: knitr,
     rmarkdown,
-    rjags,
     ggplot2,
     covr,
     greta,
     bayesplot,
-    reticulate
+    reticulate,
+    rjags
 VignetteBuilder: knitr
 Depends:
     R (>= 3.1.2),
