@@ -74,6 +74,8 @@ neat_draws
 
 ```
 
+Explore the different chains with different colours
+
 ```{r ggplot2-examples}
 
 library(ggplot2)
@@ -81,17 +83,37 @@ library(ggplot2)
 ggplot(neat_draws[parameter == "int"],
        aes(x = iteration,
            y = value,
-           colour = chain)) + 
-    geom_line()
+           colour = factor(chain))) + 
+    geom_line(alpha = 0.5)
 
+```
+
+Or explore the different chains across facets
+
+```{r ggplot2-examples-facet-wrap-chain}
+# explore the different chains across facets
+ggplot(neat_draws[parameter == "int"],
+       aes(x = iteration,
+           y = value)) + 
+  geom_line() + 
+  facet_wrap(~chain)
+
+```
+
+Exploring the variation in the `sd` parameter
+
+```{r ggplot2-examples-colour-density-sd}
 ggplot(neat_draws[parameter == "sd"],
        aes(x = value,
-           colour = chain)) + 
+           colour = factor(chain))) + 
     geom_density()
+```
+
+```{r ggplot2-examples-colour-density-coef}
 
 ggplot(neat_draws[parameter == "coef"],
        aes(x = value,
-               colour = chain)) + 
+           colour = factor(chain))) + 
     geom_density()
 
 ```
