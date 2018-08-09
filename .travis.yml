@@ -4,8 +4,12 @@ language: R
 sudo: false
 cache: packages
 
-r_github_packages:
-  - cran/rjags
+# r_github_packages:
+#   - cran/rjags
+
+env:
+  global:
+    - _R_CHECK_FORCE_SUGGESTS_=false
 
 after_success:
   - Rscript -e 'covr::codecov()'
