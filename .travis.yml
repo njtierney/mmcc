@@ -9,7 +9,7 @@ cache: packages
 
 env:
   global:
-    - _R_CHECK_FORCE_SUGGESTS_=false
+    - _R_CHECK_FORCE_SUGGESTS_=true
 
 after_success:
   - Rscript -e 'covr::codecov()'
