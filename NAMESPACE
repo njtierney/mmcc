@@ -3,6 +3,7 @@
 S3method(glance,dic)
 S3method(glance,mcmc.list)
 S3method(tidy,mcmc.list)
+export(diag_autocorr)
 export(mcmc_to_dt)
 export(mcmc_to_dt_stan)
 export(thin_dt)

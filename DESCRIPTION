@@ -1,7 +1,7 @@
 Package: mmcc
 Type: Package
 Title: tidy mcmc.list using data.table
-Version: 0.0.7.9100
+Version: 0.0.8.9000
 Authors@R: c(
   person("Nicholas", "Tierney", 
          role = c("aut", "cre"),
@@ -26,7 +26,7 @@ Imports:
     tidyr,
     tibble,
     coda
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
 Suggests: knitr,
     rmarkdown,
     ggplot2,

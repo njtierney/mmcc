@@ -1,3 +1,10 @@
+mmcc 0.0.8.9000 (2019/01/08)
+=========================
+
+## New Features
+
+- added Sam's `diag_autocorr` function to calculate autocorrelation.
+
 mmcc 0.0.7.9000 (2018/08/03)
 =========================
 
