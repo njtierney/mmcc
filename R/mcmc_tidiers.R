@@ -26,7 +26,7 @@ mcmc_to_dt <- function(mcmc_object, colnames=NULL){
   get_colnames <- function(x){
       grep(pattern = paste("^", x ,"($|\\[)", sep=""),
            x = data_colnames, # always executed within this environment
-           value=T)
+           value = T)
   }
 
   if (is.null(colnames)){
