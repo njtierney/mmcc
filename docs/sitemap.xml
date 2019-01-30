@@ -4,6 +4,9 @@
     <loc>http://mmcc.njtierney.com//index.html</loc>
   </url>
   <url>
+    <loc>http://mmcc.njtierney.com//reference/diag_mc_stderr.html</loc>
+  </url>
+  <url>
     <loc>http://mmcc.njtierney.com//reference/glance.dic.html</loc>
   </url>
   <url>
@@ -16,6 +19,9 @@
     <loc>http://mmcc.njtierney.com//reference/mcmc_to_dt_stan.html</loc>
   </url>
   <url>
+    <loc>http://mmcc.njtierney.com//reference/reexports.html</loc>
+  </url>
+  <url>
     <loc>http://mmcc.njtierney.com//reference/thin_dt.html</loc>
   </url>
   <url>
@@ -23,8 +29,5 @@
   </url>
   <url>
     <loc>http://mmcc.njtierney.com//articles/lm.html</loc>
-  </url>
-  <url>
-    <loc>http://mmcc.njtierney.com//articles/using-mmcc-w-greta.html</loc>
   </url>
 </urlset>

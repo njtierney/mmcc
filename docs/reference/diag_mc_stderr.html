@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MCMC tidiers (draft) for STAN — mcmc_to_dt_stan • mmcc</title>
+<title>Batch Means Standard Errors — diag_mc_stderr • mmcc</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="MCMC tidiers (draft) for STAN — mcmc_to_dt_stan" />
+<meta property="og:title" content="Batch Means Standard Errors — diag_mc_stderr" />
 
-<meta property="og:description" content="MCMC tidiers (draft) for STAN" />
+<meta property="og:description" content="Calculate Monte Carlo Standard Errors Using Batch Means" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -97,51 +97,55 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>MCMC tidiers (draft) for STAN</h1>
+    <h1>Batch Means Standard Errors</h1>
     
-    <div class="hidden name"><code>mcmc_to_dt_stan.Rd</code></div>
+    <div class="hidden name"><code>diag_mc_stderr.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>MCMC tidiers (draft) for STAN</p>
+    <p>Calculate Monte Carlo Standard Errors Using Batch Means</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>mcmc_to_dt_stan</span>(<span class='no'>stan_model</span>)</pre>
+    <pre class="usage"><span class='fu'>diag_mc_stderr</span>(<span class='no'>x</span>, <span class='kw'>b_size</span> <span class='kw'>=</span> <span class='st'>"sqroot"</span>, <span class='kw'>warn</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>stan_model</th>
-      <td><p>a stan model</p></td>
+      <th>x</th>
+      <td><p>'mcmc.list' or 'data.table' object</p></td>
+    </tr>
+    <tr>
+      <th>b_size</th>
+      <td><p>character, method for determining size of batch (see Details)</p></td>
+    </tr>
+    <tr>
+      <th>warn</th>
+      <td><p>logical, give a warning of there are too few samples in the MCMC output</p></td>
     </tr>
     </table>
     
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>a tidy dataframe</p>
+    <p>For the batch size, the options are 'sqroot', for using the using the square root of the MCMC output length, or 'cuberoot', for using the cube root of the output length. The default is 'sqroot'.</p>
+    
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    <p>Galin L. Jones, Murali Haran, Brian S. Caffo, and Ronald Neath (2006). "Fixed-Width Output Analysis for Markov Chain Monte Carlo," Journal of the American Statistical Association, 101, 1537--1547</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='co'>#### example 1</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>rstan</span>)
-<span class='no'>scode</span> <span class='kw'>&lt;-</span> <span class='st'>"
-parameters {
-real y[2];
-}
-model {
-y[1] ~ normal(0, 1);
-y[2] ~ double_exponential(0, 2);
-}
-"</span>
-<span class='no'>fit1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/rstan/topics/stan'>stan</a></span>(<span class='kw'>model_code</span> <span class='kw'>=</span> <span class='no'>scode</span>, <span class='kw'>iter</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
- <span class='fu'>mcmc_to_dt_stan</span>(<span class='no'>fit1</span>)
-
-<span class='co'># }</span><div class='input'>
-
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>coda</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>line</span>)
+<span class='no'>r</span> <span class='kw'>&lt;-</span> <span class='fu'>diag_mc_stderr</span>(<span class='no'>line</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: likely too few samples (less than 1000) for estimating Monte Carlo standard errors</span></div><div class='output co'>#&gt; <span class='warning'>Warning: likely too few samples (less than 1000) for estimating Monte Carlo standard errors</span></div><div class='output co'>#&gt; <span class='warning'>Warning: likely too few samples (less than 1000) for estimating Monte Carlo standard errors</span></div><div class='output co'>#&gt; <span class='warning'>Warning: likely too few samples (less than 1000) for estimating Monte Carlo standard errors</span></div><div class='output co'>#&gt; <span class='warning'>Warning: likely too few samples (less than 1000) for estimating Monte Carlo standard errors</span></div><div class='output co'>#&gt; <span class='warning'>Warning: likely too few samples (less than 1000) for estimating Monte Carlo standard errors</span></div><div class='input'><span class='no'>r</span></div><div class='output co'>#&gt;    parameter chain      mean      value
+#&gt; 1:     alpha     1 2.9826146 0.03667355
+#&gt; 2:     alpha     2 2.9925142 0.03001358
+#&gt; 3:      beta     1 0.7866946 0.02285799
+#&gt; 4:      beta     2 0.8116781 0.02778074
+#&gt; 5:     sigma     1 0.9544249 0.10259971
+#&gt; 6:     sigma     2 0.9816789 0.04737521</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -149,7 +153,9 @@ y[2] ~ double_exponential(0, 2);
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#value">Value</a></li>
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#references">References</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>
