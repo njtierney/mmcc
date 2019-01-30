@@ -1,7 +1,7 @@
 Package: mmcc
 Type: Package
 Title: tidy mcmc.list using data.table
-Version: 0.0.8.9000
+Version: 0.0.8.9100
 Authors@R: c(
   person("Nicholas", "Tierney", 
          role = c("aut", "cre"),
@@ -11,10 +11,8 @@ Authors@R: c(
          role = c("aut"),
          email = "sj.clifford@gmail.com", 
          comment = c(ORCID = "https://orcid.org/0000-0002-3774-3882")))
-Description: mmcc makes it easy and FAST to tidy up and visualise
-    mcmc samples from a mcmc.list. It uses data.table to make it so.
-    It might in the future use plotly to make interactive and FAST
-    diagnostic plots.
+Description: Tidy up, diagnose, and visualise your mcmc samples quickly and 
+    easily so you can get on with your analysis.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -26,7 +24,9 @@ Imports:
     tidyr,
     tibble,
     coda,
-    generics
+    generics,
+    graphics,
+    stats
 RoxygenNote: 6.1.1
 Suggests: knitr,
     rmarkdown,

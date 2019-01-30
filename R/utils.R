@@ -9,6 +9,9 @@ generics::tidy
 #' @export
 generics::glance
 
+#' @importFrom graphics plot
+#' @importFrom stats acf ts.plot
+
 if(getRversion() >= "2.15.1")  utils::globalVariables(c("."))
 globalVariables(
     c("type",
