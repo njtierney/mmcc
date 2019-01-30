@@ -17,7 +17,6 @@
 #' @author Sam Clifford, \email{sj.clifford@@gmail.com}
 #'
 #' @import data.table
-#' @importFrom broom tidy
 #'
 #' @return a data.table containing parameter summaries
 #'
