@@ -1,3 +1,14 @@
+mmcc 0.0.8.9000 (2019/01/30)
+=========================
+
+## New Features
+
+- Add Haran et al's batch means function to diagnostics (#25)
+
+## Minor Changes
+
+- Updated to use generics instead of importing broom
+
 mmcc 0.0.7.9000 (2018/08/03)
 =========================
 
