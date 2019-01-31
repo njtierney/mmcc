@@ -1,4 +1,4 @@
-mmcc 0.0.8.9100 (2019/01/30)
+mmcc 0.0.8.9200 (2019/01/30)
 =========================
 
 ## New Features
@@ -9,6 +9,7 @@ mmcc 0.0.8.9100 (2019/01/30)
 
 - Updated to use generics instead of importing broom
 - Removed greta vignette as the python/tensorflow build problems were stopping he package from building properley
+- added test coverage
 
 mmcc 0.0.7.9000 (2018/08/03)
 =========================

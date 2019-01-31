@@ -1,7 +1,7 @@
 Package: mmcc
 Type: Package
 Title: tidy mcmc.list using data.table
-Version: 0.0.8.9100
+Version: 0.0.8.9200
 Authors@R: c(
   person("Nicholas", "Tierney", 
          role = c("aut", "cre"),
@@ -28,14 +28,16 @@ Imports:
     graphics,
     stats
 RoxygenNote: 6.1.1
-Suggests: knitr,
+Suggests: 
+    knitr,
     rmarkdown,
     ggplot2,
     covr,
     greta,
     bayesplot,
     reticulate,
-    rjags
+    rjags,
+    testthat
 VignetteBuilder: knitr
 Depends:
     R (>= 3.1.2)
