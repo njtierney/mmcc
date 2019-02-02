@@ -19,6 +19,11 @@ This provides a one-row dataframe (`data.table`) with information on the
  overall deviance, effective number of parameters (when `type` was pD) or
  optimism (when `type` was popt), and resulting penalised deviance.
 }
+\examples{
+library(rjags)
+model_dic <- dic.samples(example_jags_model, n.iter = 1000)
+glance(model_dic)
+}
 \author{
 Sam Clifford, \email{sj.clifford@gmail.com}
 }
