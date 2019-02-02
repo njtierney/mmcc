@@ -6,21 +6,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' #### example 1
-#' library(rstan)
-#' scode <- "
-#' parameters {
-#' real y[2];
-#' }
-#' model {
-#' y[1] ~ normal(0, 1);
-#' y[2] ~ double_exponential(0, 2);
-#' }
-#' "
-#' fit1 <- stan(model_code = scode, iter = 10, verbose = FALSE)
-#'  mcmc_to_dt_stan(fit1)
-#'  }
+#'  mcmc_to_dt_stan(example_stan_model)
 #'
 #'
 mcmc_to_dt_stan <- function(stan_model){

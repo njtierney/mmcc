@@ -1,9 +1,10 @@
-mmcc 0.0.8.9300 (2019/02/01)
+mmcc 0.0.8.9400 (2019/02/01)
 =========================
 
 ## Minor Changes
 
 * added `example_jags_model` as an example data set to use in package
+* added `example_stan_model` as an example data set to use in package
 * added tests for `thin_dt()` and `glance.dic()`
 
 mmcc 0.0.8.9200 (2019/01/30)
