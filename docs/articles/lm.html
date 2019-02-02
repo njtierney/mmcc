@@ -30,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mmcc</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.8.9200</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.8.9300</span>
       </span>
     </div>
 
@@ -64,7 +64,7 @@
       <h1>Model summaries for a Bayesian linear regression</h1>
                         <h4 class="author">Sam Clifford</h4>
             
-            <h4 class="date">2019-01-30</h4>
+            <h4 class="date">2019-02-01</h4>
       
       
       <div class="hidden name"><code>lm.Rmd</code></div>
@@ -160,17 +160,17 @@
 <a class="sourceLine" id="cb6-4" data-line-number="4">samples_dt &lt;-<span class="st"> </span><span class="kw"><a href="../reference/mcmc_to_dt.html">mcmc_to_dt</a></span>(samples)</a>
 <a class="sourceLine" id="cb6-5" data-line-number="5">samples_dt</a>
 <a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt;         iteration chain  parameter     value</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt;      1:         1     1     beta_0 0.8760933</span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt;      2:         2     1     beta_0 0.8384327</span></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt;      3:         3     1     beta_0 0.9508520</span></a>
-<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#&gt;      4:         4     1     beta_0 0.8710586</span></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">#&gt;      5:         5     1     beta_0 0.9335808</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt;      1:         1     1     beta_0 0.9112238</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt;      2:         2     1     beta_0 0.8010436</span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt;      3:         3     1     beta_0 0.8643769</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#&gt;      4:         4     1     beta_0 0.7944889</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">#&gt;      5:         5     1     beta_0 0.8408893</span></a>
 <a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">#&gt;     ---                                     </span></a>
-<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#&gt; 689996:      9996     3 y_pred[10] 3.1550568</span></a>
-<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt; 689997:      9997     3 y_pred[10] 3.1757384</span></a>
-<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">#&gt; 689998:      9998     3 y_pred[10] 3.0129327</span></a>
-<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co">#&gt; 689999:      9999     3 y_pred[10] 2.8482221</span></a>
-<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co">#&gt; 690000:     10000     3 y_pred[10] 2.2779931</span></a>
+<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#&gt; 689996:      9996     3 y_pred[10] 3.5722373</span></a>
+<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt; 689997:      9997     3 y_pred[10] 3.3416762</span></a>
+<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">#&gt; 689998:      9998     3 y_pred[10] 3.0006974</span></a>
+<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co">#&gt; 689999:      9999     3 y_pred[10] 3.3961728</span></a>
+<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co">#&gt; 690000:     10000     3 y_pred[10] 3.3583402</span></a>
 <a class="sourceLine" id="cb6-18" data-line-number="18"></a>
 <a class="sourceLine" id="cb6-19" data-line-number="19">pars_dt &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/generics/topics/tidy">tidy</a></span>(samples, </a>
 <a class="sourceLine" id="cb6-20" data-line-number="20">                <span class="dt">conf_level =</span> <span class="fl">0.95</span>, </a>
@@ -179,10 +179,10 @@
 <a class="sourceLine" id="cb6-23" data-line-number="23">                             <span class="st">"tau_y"</span>))</a>
 <a class="sourceLine" id="cb6-24" data-line-number="24"></a>
 <a class="sourceLine" id="cb6-25" data-line-number="25">pars_dt</a>
-<a class="sourceLine" id="cb6-26" data-line-number="26"><span class="co">#&gt;    parameter       mean        sd      2.5%     median     97.5%</span></a>
-<a class="sourceLine" id="cb6-27" data-line-number="27"><span class="co">#&gt; 1:    beta_0  0.9279217 0.1008911 0.7283281  0.9279731  1.125280</span></a>
-<a class="sourceLine" id="cb6-28" data-line-number="28"><span class="co">#&gt; 2:    beta_1  2.2199566 0.1855733 1.8485833  2.2213792  2.586719</span></a>
-<a class="sourceLine" id="cb6-29" data-line-number="29"><span class="co">#&gt; 3:     tau_y 13.8161022 4.6245668 6.2701035 13.3028801 24.296097</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-26" data-line-number="26"><span class="co">#&gt;    parameter      mean        sd      2.5%    median     97.5%</span></a>
+<a class="sourceLine" id="cb6-27" data-line-number="27"><span class="co">#&gt; 1:    beta_0  0.924492 0.0994490 0.7262698  0.923934  1.121158</span></a>
+<a class="sourceLine" id="cb6-28" data-line-number="28"><span class="co">#&gt; 2:    beta_1  2.225250 0.1834351 1.8637230  2.226307  2.585992</span></a>
+<a class="sourceLine" id="cb6-29" data-line-number="29"><span class="co">#&gt; 3:     tau_y 13.782520 4.5543831 6.3572410 13.303498 24.008296</span></a></code></pre></div>
 <p>Summarise the line of best fit, <code>mu</code>, and the predictions, <code>y_pred</code>,</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">mu_dt &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/generics/topics/tidy">tidy</a></span>(samples, </a>
 <a class="sourceLine" id="cb7-2" data-line-number="2">              <span class="dt">conf_level =</span> <span class="fl">0.95</span>, </a>
@@ -195,17 +195,17 @@
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">mu_dt[ , x<span class="op">:</span><span class="er">=</span><span class="st"> </span>x_pred]</a>
 <a class="sourceLine" id="cb8-2" data-line-number="2">y_dt[ , x<span class="op">:</span><span class="er">=</span><span class="st"> </span>x_pred]</a>
 <a class="sourceLine" id="cb8-3" data-line-number="3">y_dt</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt;      parameter      mean        sd      2.5%   median    97.5%         x</span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt;  1:  y_pred[1] 0.9548077 0.3045670 0.3592322 0.954215 1.561929 0.0112199</span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt;  2:  y_pred[2] 1.1960730 0.2982312 0.6118881 1.197640 1.793844 0.1202395</span></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt;  3:  y_pred[3] 1.4370874 0.2937579 0.8548740 1.437338 2.016432 0.2292590</span></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co">#&gt;  4:  y_pred[4] 1.6771841 0.2923636 1.0957180 1.678103 2.255539 0.3382786</span></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="co">#&gt;  5:  y_pred[5] 1.9210605 0.2932465 1.3441529 1.920784 2.500208 0.4472982</span></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="co">#&gt;  6:  y_pred[6] 2.1613441 0.2932627 1.5804239 2.161851 2.744904 0.5563177</span></a>
-<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="co">#&gt;  7:  y_pred[7] 2.4030559 0.2944804 1.8190094 2.402740 2.983987 0.6653373</span></a>
-<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="co">#&gt;  8:  y_pred[8] 2.6462795 0.2984577 2.0518081 2.643821 3.241694 0.7743569</span></a>
-<a class="sourceLine" id="cb8-13" data-line-number="13"><span class="co">#&gt;  9:  y_pred[9] 2.8886681 0.3040799 2.2851520 2.887935 3.491639 0.8833765</span></a>
-<a class="sourceLine" id="cb8-14" data-line-number="14"><span class="co">#&gt; 10: y_pred[10] 3.1322683 0.3115330 2.5160937 3.132009 3.754816 0.9923960</span></a></code></pre></div>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt;      parameter      mean        sd      2.5%    median    97.5%         x</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt;  1:  y_pred[1] 0.9478433 0.3002920 0.3506615 0.9463829 1.543704 0.0112199</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt;  2:  y_pred[2] 1.1934373 0.2980774 0.6011571 1.1921787 1.788495 0.1202395</span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt;  3:  y_pred[3] 1.4349571 0.2944812 0.8523959 1.4342498 2.023439 0.2292590</span></a>
+<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co">#&gt;  4:  y_pred[4] 1.6742918 0.2935478 1.0907819 1.6740384 2.257015 0.3382786</span></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="co">#&gt;  5:  y_pred[5] 1.9206716 0.2941172 1.3418086 1.9225791 2.500972 0.4472982</span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="co">#&gt;  6:  y_pred[6] 2.1638978 0.2947522 1.5818237 2.1642891 2.750502 0.5563177</span></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="co">#&gt;  7:  y_pred[7] 2.4055666 0.2966433 1.8186290 2.4031570 2.997888 0.6653373</span></a>
+<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="co">#&gt;  8:  y_pred[8] 2.6480627 0.2998802 2.0558604 2.6485508 3.246963 0.7743569</span></a>
+<a class="sourceLine" id="cb8-13" data-line-number="13"><span class="co">#&gt;  9:  y_pred[9] 2.8927452 0.3072666 2.2852859 2.8905180 3.509767 0.8833765</span></a>
+<a class="sourceLine" id="cb8-14" data-line-number="14"><span class="co">#&gt; 10: y_pred[10] 3.1366084 0.3113266 2.5240160 3.1354399 3.759669 0.9923960</span></a></code></pre></div>
 <p>Now we’ll generate a plot that shows the data, a 95% credible interval for the predictions, <span class="math inline">\({\hat{\bm{y}}}_{pred}\)</span>, and a 95% credible interval for their means, <span class="math inline">\({\hat{\bm{\mu}}}_{pred}\)</span>.</p>
 <p><img src="lm_files/figure-html/mmcc-plot-cr-i-1.png" width="700" style="display: block; margin: auto;"></p>
 <p>If we tidy the <code>samples</code> object, we can look at the distribution of values</p>

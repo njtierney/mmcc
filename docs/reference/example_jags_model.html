@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Batch Means Standard Errors — diag_mc_stderr • mmcc</title>
+<title>Example JAGS Model — example_jags_model • mmcc</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,14 @@
 
 
 
-<meta property="og:title" content="Batch Means Standard Errors — diag_mc_stderr" />
+<meta property="og:title" content="Example JAGS Model — example_jags_model" />
 
-<meta property="og:description" content="Calculate Monte Carlo Standard Errors Using Batch Means" />
+<meta property="og:description" content="This is an example JAGS model to use for examples in the `mmcc` package. The
+    model is fit as a basic linear regression, with uniform priors on beta0
+    and beta1, where y is assumed to be normal, with mean mu and precision
+    tau. The model is drawn from the vignette, &quot;Model summaries for a
+    Bayesian linear regression&quot;, and the code to generate it can be found in
+    the `data-raw` folder." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -97,65 +102,38 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Batch Means Standard Errors</h1>
+    <h1>Example JAGS Model</h1>
     
-    <div class="hidden name"><code>diag_mc_stderr.Rd</code></div>
+    <div class="hidden name"><code>example_jags_model.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Calculate Monte Carlo Standard Errors Using Batch Means</p>
+    <p>This is an example JAGS model to use for examples in the `mmcc` package. The
+    model is fit as a basic linear regression, with uniform priors on beta0
+    and beta1, where y is assumed to be normal, with mean mu and precision
+    tau. The model is drawn from the vignette, "Model summaries for a
+    Bayesian linear regression", and the code to generate it can be found in
+    the `data-raw` folder.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>diag_mc_stderr</span>(<span class='no'>x</span>, <span class='kw'>b_size</span> <span class='kw'>=</span> <span class='st'>"sqroot"</span>, <span class='kw'>warn</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>x</th>
-      <td><p>'mcmc.list' or 'data.table' object</p></td>
-    </tr>
-    <tr>
-      <th>b_size</th>
-      <td><p>character, method for determining size of batch (see Details)</p></td>
-    </tr>
-    <tr>
-      <th>warn</th>
-      <td><p>logical, give a warning of there are too few samples in the MCMC output</p></td>
-    </tr>
-    </table>
-    
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <pre class="usage"><span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>example_jags_model</span>)</pre>
+        
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>For the batch size, the options are 'sqroot', for using the using the square root of the MCMC output length, or 'cuberoot', for using the cube root of the output length. The default is 'sqroot'.</p>
-    
-    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
-
-    <p>Galin L. Jones, Murali Haran, Brian S. Caffo, and Ronald Neath (2006). "Fixed-Width Output Analysis for Markov Chain Monte Carlo," Journal of the American Statistical Association, 101, 1537--1547</p>
+    <p>An object of class <code>jags</code> of length 8.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>coda</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>line</span>)
-<span class='no'>r</span> <span class='kw'>&lt;-</span> <span class='fu'>diag_mc_stderr</span>(<span class='no'>line</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: likely too few samples (less than 1000) for estimating Monte Carlo standard errors</span></div><div class='output co'>#&gt; <span class='warning'>Warning: likely too few samples (less than 1000) for estimating Monte Carlo standard errors</span></div><div class='output co'>#&gt; <span class='warning'>Warning: likely too few samples (less than 1000) for estimating Monte Carlo standard errors</span></div><div class='output co'>#&gt; <span class='warning'>Warning: likely too few samples (less than 1000) for estimating Monte Carlo standard errors</span></div><div class='output co'>#&gt; <span class='warning'>Warning: likely too few samples (less than 1000) for estimating Monte Carlo standard errors</span></div><div class='output co'>#&gt; <span class='warning'>Warning: likely too few samples (less than 1000) for estimating Monte Carlo standard errors</span></div><div class='input'><span class='no'>r</span></div><div class='output co'>#&gt;    parameter chain      mean      value
-#&gt; 1:     alpha     1 2.9826146 0.03667355
-#&gt; 2:     alpha     2 2.9925142 0.03001358
-#&gt; 3:      beta     1 0.7866946 0.02285799
-#&gt; 4:      beta     2 0.8116781 0.02778074
-#&gt; 5:     sigma     1 0.9544249 0.10259971
-#&gt; 6:     sigma     2 0.9816789 0.04737521</div><div class='input'>
-</div></pre>
+    <pre class="examples"><div class='input'>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/generics/topics/glance'>glance</a></span>(<span class='no'>example_jags_model</span>)</div><div class='output co'>#&gt; <span class='error'>Error: No glance method for objects of class jags</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#details">Details</a></li>
-
-      <li><a href="#references">References</a></li>
+      <li><a href="#format">Format</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>
