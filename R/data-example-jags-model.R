@@ -11,6 +11,8 @@
 #' @usage data(example_jags_model)
 #' @keywords data
 #' @examples
-#'
-#' glance(example_jags_model)
+#' library(rjags)
+#' example_jags_model$recompile()
+#' model_dic <- dic.samples(example_jags_model, n.iter = 1000)
+#' glance(model_dic)
 "example_jags_model"

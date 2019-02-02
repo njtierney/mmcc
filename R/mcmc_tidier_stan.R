@@ -1,20 +1,18 @@
 #' MCMC tidiers (draft) for STAN
 #'
-#' @param stan_model a stan model
+#' @inheritParams mcmc_to_dt
 #'
-#' @return a tidy dataframe
 #' @export
 #'
 #' @examples
-#'  mcmc_to_dt_stan(example_stan_model)
+#'  mcmc_to_dt(example_stan_model)
 #'
-#'
-mcmc_to_dt_stan <- function(stan_model){
+mcmc_to_dt.stanfit <- function(mcmc_object, ...){
 
-    samples_data <- purrr::map(stan_model@sim$samples, as.data.frame)
+    samples_data <- purrr::map(mcmc_object@sim$samples, as.data.frame)
 
-    n_chain <- stan_model@sim$chains
-    n_iter <- stan_model@sim$iter
+    n_chain <- mcmc_object@sim$chains
+    n_iter <- mcmc_object@sim$iter
 
     tidy_fit_stan <- samples_data %>%
         dplyr::bind_rows() %>%

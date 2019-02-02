@@ -24,5 +24,5 @@
 #'                                verbose = FALSE)
 #' }
 #'
-#' glance(example_stan_model)
+#' mcmc_to_dt(example_stan_model)
 "example_stan_model"

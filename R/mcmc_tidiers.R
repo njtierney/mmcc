@@ -1,21 +1,37 @@
 #' Convert `mcmc.list` to a tidy data.table object
 #'
-#' `mcmc_to_dt` use data.table to return a tidy dataframe from an "mcmc.list"
-#'   object
+#' `mcmc_to_dt` use data.table to return a tidy dataframe from an "mcmc.list",
+#'  or "stan" object.
 #'
 #' @param mcmc_object an object of class "mcmc.list", as you would find with
-#'   fitting a model using `jags.model()`, and `coda.samples`
-#' @param colnames which parameters we want from `mcmc_object`, if `NULL` then all
-#'   columns get selected
+#'   fitting a model using `jags.model()`, and `coda.samples`, or "stan", from
+#'   fitting a stan model.
+#'
+#' @param ... additional arguments
 #'
 #' @return a tidy data.table dataframe of MCMC sample
 #' @export
+mcmc_to_dt <- function(mcmc_object, ...){
+  UseMethod("mcmc_to_dt")
+}
+
+#' Convert `mcmc.list` to a tidy data.table object
+#'
+#' `mcmc_to_dt` use data.table to return a tidy dataframe from an "mcmc.list",
+#'  or "stan" object.
+#'
+#' @inheritParams mcmc_to_dt
+#'
+#' @param colnames which parameters we want from `mcmc_object`, if `NULL` then all
+#'   columns get selected
 #'
 #' @examples
 #' library(coda)
 #' data(line)
 #' mcmc_to_dt(line)
-mcmc_to_dt <- function(mcmc_object, colnames=NULL){
+#'
+#' @export
+mcmc_to_dt.mcmc.list <- function(mcmc_object, ..., colnames = NULL){
 
   # how many chains?
   n_chain <- length(mcmc_object)

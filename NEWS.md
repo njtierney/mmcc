@@ -1,6 +1,10 @@
 mmcc 0.0.8.9400 (2019/02/01)
 =========================
 
+## New Features
+
+* `mcmc_to_dt` is now and S3 method, removing `mcmc_to_dt_stan()`.
+
 ## Minor Changes
 
 * added `example_jags_model` as an example data set to use in package

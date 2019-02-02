@@ -1,6 +1,7 @@
 context("test-glance-dic")
 
 library(rjags)
+example_jags_model$recompile()
 model_dic <- dic.samples(example_jags_model, n.iter = 1000)
 glance_model_dic <- glance(model_dic)
 

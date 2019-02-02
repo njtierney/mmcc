@@ -29,6 +29,6 @@ This is an example STAN model to use for examples in the `mmcc` package. It
                                verbose = FALSE)
 }
 
-glance(example_stan_model)
+mcmc_to_dt(example_stan_model)
 }
 \keyword{data}

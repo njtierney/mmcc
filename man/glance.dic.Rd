@@ -21,6 +21,7 @@ This provides a one-row dataframe (`data.table`) with information on the
 }
 \examples{
 library(rjags)
+example_jags_model$recompile()
 model_dic <- dic.samples(example_jags_model, n.iter = 1000)
 glance(model_dic)
 }
