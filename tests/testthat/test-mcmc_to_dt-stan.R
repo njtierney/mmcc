@@ -1,22 +1,23 @@
 context("test-mcmc_to_dt-stan")
 
-example_stan_model
+tidy_stan <- mcmc_to_dt(example_stan_model)
 
-test_that("mcmc_to_dt returns a dataframe and datatable", {
-    expect_is(mcmc_to_dt(line), "data.frame")
-    expect_is(mcmc_to_dt(line), "data.table")
+
+test_that("mcmc_to_dt.stan returns a dataframe and datatable", {
+    expect_is(tidy_stan, "data.frame")
+    expect_is(tidy_stan, "data.table")
 })
 
-test_that("mcmc_to_dt has the right names", {
-    expect_equal(names(mcmc_to_dt(line)),
+test_that("mcmc_to_dt.stan has the right names", {
+    expect_equal(names(tidy_stan),
                  c("iteration",
                    "chain",
                    "parameter",
                    "value"))
 })
 
-test_that("mcmc_to_dt has the right dimensions", {
-    expect_equal(nrow(mcmc_to_dt(line)), 1200)
-    expect_equal(ncol(mcmc_to_dt(line)), 4)
+test_that("mcmc_to_dt.stan has the right dimensions", {
+    expect_equal(nrow(tidy_stan), 120)
+    expect_equal(ncol(tidy_stan), 4)
 })
 
