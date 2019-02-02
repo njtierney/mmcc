@@ -17,7 +17,9 @@ This is an example JAGS model to use for examples in the `mmcc` package. The
     the `data-raw` folder.
 }
 \examples{
-
-glance(example_jags_model)
+library(rjags)
+example_jags_model$recompile()
+model_dic <- dic.samples(example_jags_model, n.iter = 1000)
+glance(model_dic)
 }
 \keyword{data}

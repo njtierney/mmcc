@@ -21,8 +21,7 @@ globalVariables(
       "parameter",
       "chain",
       "iteration",
-      "chain",
-      "iteration",
-      "iteration",
+      "deviance_penalised",
+      "stan_model",
       "value")
 )
