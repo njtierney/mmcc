@@ -14,19 +14,23 @@
 #' line_acf
 diag_autocorr <- function(x, lags = NULL){
 
-    if("mcmc.list" %in% class(x)){
+    if (inherits(x, "mcmc.list")) {
         x <- mcmc_to_dt(x)
     }
 
     max_iter <- max(x$iteration)
 
-    if(is.null(lags)){
+    if (is.null(lags)) {
+
         lag_max <- ceiling(10*log10(max_iter))
         lag_max <- min(lag_max, max_iter - 1)
         lags <- 0:lag_max
+
     } else {
+
         lag_max <- max(lags)
         lag_max <- min(lag_max, max_iter - 1)
+
     }
 
     x_split <- data.table:::split.data.table(x,
@@ -65,7 +69,7 @@ diag_autocorr <- function(x, lags = NULL){
                                x = id)
           ]
 
-    x_df <- x_df[ , id := NULL]
+    x_df[ , id := NULL]
 
     data.table::setcolorder(x_df, c("chain",
                                     "parameter",
@@ -73,6 +77,5 @@ diag_autocorr <- function(x, lags = NULL){
                                     "acf"))
 
     x_df
-
 
 }
