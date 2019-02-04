@@ -67,5 +67,12 @@ diag_autocorr <- function(x, lags = NULL){
 
     x_df <- x_df[ , id := NULL]
 
-    print(x_df)
+    data.table::setcolorder(x_df, c("chain",
+                                    "parameter",
+                                    "lag",
+                                    "acf"))
+
+    x_df
+
+
 }
