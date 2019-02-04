@@ -37,7 +37,8 @@ Suggests:
     bayesplot,
     reticulate,
     rjags,
-    testthat
+    testthat,
+    rstan
 VignetteBuilder: knitr
 Depends:
     R (>= 3.1.2)
