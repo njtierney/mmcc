@@ -4,8 +4,10 @@ language: R
 sudo: false
 cache: packages
 
-# r_github_packages:
-#   - cran/rjags
+addons:
+  apt:
+    packages:
+      - jags
 
 env:
   global:

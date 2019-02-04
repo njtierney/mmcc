@@ -110,7 +110,6 @@ We can now convert the posterior samples to a `data.table` and summarise the reg
 
 ``` {r rjags-summarise}
 library(mmcc)
-# library(broom)
 
 # convert to a data.table
 samples_dt <- mcmc_to_dt(samples)

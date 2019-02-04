@@ -1,8 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-    ## Loading required package: broom
-
 # mmcc
 
 [![AppVeyor Build
@@ -12,21 +10,25 @@ Status](https://travis-ci.org/njtierney/mmcc.svg?branch=master)](https://travis-
 [![Coverage
 Status](https://img.shields.io/codecov/c/github/njtierney/mmcc/master.svg)](https://codecov.io/github/njtierney/mmcc?branch=master)
 
-**License:** [MIT](https://opensource.org/licenses/MIT)
+Tidying up MCMC output can be a real pain. There are plenty of packages
+that help with summarising MCMC and providing their own summaries, but
+sometimes *you just want a tidy datastructure* so you can do your own
+thing. And quickly.
 
-mmcc provides custom functions written in data.table for tidying up
-mcmc.list objects.
+`mmcc` provides tidying functions that return tidy data structure from
+mcmc.list objects. It uses `data.table` as the backend for speediness,
+it also provides `broom` tidiers to assist in some quick summaries.
 
 # Installation
 
 Install from github using:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("njtierney/mmcc")
+# install.packages("remotes")
+remotes::install_github("njtierney/mmcc")
 ```
 
-# Using mmcc
+# Usingage mmcc
 
 `mcmc_to_dt` takes an `mcmc.list` object and turns it into a
 `data.table` of the format:

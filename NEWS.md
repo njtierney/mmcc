@@ -1,9 +1,27 @@
-mmcc 0.0.8.9000 (2019/01/08)
-=========================
+# mmcc 0.0.8.9400 (2019/02/01)
 
 ## New Features
 
-- added Sam's `diag_autocorr` function to calculate autocorrelation.
+* added Sam's `diag_autocorr` function to calculate autocorrelation.
+* `mcmc_to_dt` is now and S3 method, removing `mcmc_to_dt_stan()`, it just works on stan models now. And `mcmc_to_dt.stan()` is about 5 times faster.
+
+## Minor Changes
+
+* added `example_jags_model` as an example data set to use in package
+* added `example_stan_model` as an example data set to use in package
+* added tests for `thin_dt()` and `glance.dic()`
+
+# mmcc 0.0.8.9200 (2019/01/30)
+
+## New Features
+
+- Add Haran et al's batch means function to diagnostics (#25)
+
+## Minor Changes
+
+- Updated to use generics instead of importing broom
+- Removed greta vignette as the python/tensorflow build problems were stopping he package from building properley
+- added test coverage
 
 mmcc 0.0.7.9000 (2018/08/03)
 =========================

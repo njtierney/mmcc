@@ -12,8 +12,12 @@
 #' @author Sam Clifford, \email{sj.clifford@@gmail.com}
 #'
 #' @import data.table
-#' @importFrom broom glance
 #' @export
+#' @examples
+#' library(rjags)
+#' example_jags_model$recompile()
+#' model_dic <- dic.samples(example_jags_model, n.iter = 1000)
+#' glance(model_dic)
 glance.dic <- function(x, ...){
 
     dic_table <- with(x,
@@ -29,7 +33,7 @@ glance.dic <- function(x, ...){
                              .SDcols = c("deviance", "penalty") ,
                              by = type]
 
-    dic_return[ , deviance.penalised := penalty + deviance  ]
+    dic_return[ , deviance_penalised := penalty + deviance  ]
 
     return(dic_return[])
 }

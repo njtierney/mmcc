@@ -4,24 +4,19 @@
 \alias{mcmc_to_dt}
 \title{Convert `mcmc.list` to a tidy data.table object}
 \usage{
-mcmc_to_dt(mcmc_object, colnames = NULL)
+mcmc_to_dt(mcmc_object, ...)
 }
 \arguments{
 \item{mcmc_object}{an object of class "mcmc.list", as you would find with
-fitting a model using `jags.model()`, and `coda.samples`}
+fitting a model using `jags.model()`, and `coda.samples`, or "stan", from
+fitting a stan model.}
 
-\item{colnames}{which parameters we want from `mcmc_object`, if `NULL` then all
-columns get selected}
+\item{...}{additional arguments}
 }
 \value{
 a tidy data.table dataframe of MCMC sample
 }
 \description{
-`mcmc_to_dt` use data.table to return a tidy dataframe from an "mcmc.list"
-  object
-}
-\examples{
-library(coda)
-data(line)
-mcmc_to_dt(line)
+`mcmc_to_dt` use data.table to return a tidy dataframe from an "mcmc.list",
+ or "stan" object.
 }
