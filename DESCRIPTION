@@ -1,7 +1,7 @@
 Package: mmcc
 Type: Package
 Title: tidy mcmc.list using data.table
-Version: 0.0.8.9400
+Version: 0.0.8.9500
 Authors@R: c(
   person("Nicholas", "Tierney", 
          role = c("aut", "cre"),

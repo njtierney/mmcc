@@ -1,3 +1,9 @@
+# mmcc 0.0.8.9500 (2019/02/13)
+
+## Minor Changes
+
+* Minor speed-ups (1.5x) in `diag_autocorr` gained by pulling the two `lapply` calls together and separating the chain and parameter values from the id column simultaneousy.
+
 # mmcc 0.0.8.9400 (2019/02/01)
 
 ## New Features
@@ -43,14 +49,14 @@ mmcc 0.0.6.9001 (2017/06/13)
 
 ## Minor Changes
 
-- changes name to `mmcc``
+- changes name to `mmcc`
 
 dsmcmc 0.0.5.9001 (2017/06/13)
 =========================
 
 ## Minor Changes
 
-- changes name to `mmcc``
+- changes name to `mmcc`
 - added `thin_dt`, to allow post hoc thinning of chains
 - updated linear model vignette to show off `thin_dt` with trace plots
 
