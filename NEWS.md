@@ -1,3 +1,9 @@
+# mmcc 0.0.8.9600 (2019/02/13)
+
+## New Features
+
+* Implemented effective sample size diagnostic, `diag_ess`, (#34) which does not aggregate over chains
+
 # mmcc 0.0.8.9500 (2019/02/13)
 
 ## Minor Changes
