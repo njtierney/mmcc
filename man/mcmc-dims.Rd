@@ -7,6 +7,9 @@
 \usage{
 n_chain(x)
 }
+\arguments{
+\item{x}{an mcmc object, see "Details" for a list of supported mcmc objects.}
+}
 \description{
 Retrieve dimensions of an MCMC object:
 \itemize{

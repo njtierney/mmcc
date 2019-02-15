@@ -13,6 +13,8 @@
 #'     * `stanfit`
 #'     * `jags`
 #'
+#' @param x an mcmc object, see "Details" for a list of supported mcmc objects.
+#'
 #' @name mcmc-dims
 #'
 #' @export
