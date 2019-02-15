@@ -3,9 +3,12 @@
 \name{mcmc-dims}
 \alias{mcmc-dims}
 \alias{n_chain}
+\alias{n_var}
 \title{Dimensions of MCMC objects}
 \usage{
 n_chain(x)
+
+n_var(x)
 }
 \arguments{
 \item{x}{an mcmc object, see "Details" for a list of supported mcmc objects.}
