@@ -24,7 +24,7 @@ diag_ess <- function(x, aggregate_chains = TRUE){
     my_by <- "parameter"
     
     if (!aggregate_chains){
-        agg_parms <- c("chain", agg_parms)
+        my_by <- c("chain", my_by)
     } 
     
     x_ess <- x[ , .(ess = make_ess(value)) ,

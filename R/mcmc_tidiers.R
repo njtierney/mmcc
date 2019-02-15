@@ -34,11 +34,14 @@ mcmc_to_dt <- function(mcmc_object, ...){
 mcmc_to_dt.mcmc.list <- function(mcmc_object, ..., colnames = NULL){
 
   # how many chains?
-  n_chain <- length(mcmc_object)
+  n_chain <- n_chain(mcmc_object)
 
   # which parameters are we summarising?
   data_colnames <- attr(mcmc_object[1][[1]], "dimnames")[[2]]
 
+  mcpar <- attr(mcmc_object[[1]], "mcpar")
+  iterations <- seq(mcpar[1], mcpar[2], by = mcpar[3])
+  
   get_colnames <- function(x){
       grep(pattern = paste("^", x ,"($|\\[)", sep=""),
            x = data_colnames, # always executed within this environment
@@ -65,7 +68,7 @@ mcmc_to_dt.mcmc.list <- function(mcmc_object, ..., colnames = NULL){
     colnames(mcmc_chain_c) <- colnames
 
     # how many iterations?
-    iterations <- 1:dim(mcmc_chain_c)[1]
+    
 
     mcmc_dt <- data.table::data.table(
         Iteration = iterations,
@@ -80,23 +83,7 @@ mcmc_to_dt.mcmc.list <- function(mcmc_object, ..., colnames = NULL){
         id.vars = c("Iteration",
                     "chain"))
 
-    # reset the names
-    data.table::setnames(dt_melt, c("iteration",
-                                    "chain",
-                                    "parameter",
-                                    "value"))
-
-    # change the order of the columns
-    data.table::setcolorder(dt_melt, c("iteration",
-                                       "chain",
-                                       "parameter",
-                                       "value"))
-
-    # arrange the row order
-    data.table::setorder(dt_melt,
-                         parameter,
-                         chain,
-                         iteration)
+    
 
     dt_box[[c]] <- dt_melt
 
@@ -104,6 +91,24 @@ mcmc_to_dt.mcmc.list <- function(mcmc_object, ..., colnames = NULL){
 
   # bind the loop together
   dt_mcmc <- data.table::rbindlist(dt_box)
+  
+  # reset the names
+  data.table::setnames(dt_mcmc, c("iteration",
+                                  "chain",
+                                  "parameter",
+                                  "value"))
+  
+  # set the order of the columns
+  data.table::setcolorder(dt_mcmc, c("iteration",
+                                     "chain",
+                                     "parameter",
+                                     "value"))
+  
+  # arrange the row order
+  data.table::setorder(dt_mcmc,
+                       parameter,
+                       chain,
+                       iteration)
 
   # return it
   return(dt_mcmc)

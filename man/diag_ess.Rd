@@ -4,13 +4,15 @@
 \alias{diag_ess}
 \title{Diagnostic: Calculate the effective sample size for each chain and parameter}
 \usage{
-diag_ess(x)
+diag_ess(x, aggregate_chains = TRUE)
 }
 \arguments{
 \item{x}{mcmc.list object or dataframe creatd by \code{mcmc_to_dt}}
+
+\item{aggregate_chains}{a logical indicating whether to aggregate chains (the way \code{coda::effectSize} does, the default) or report effective sample sizes for each parameter for each chain}
 }
 \value{
-a data.table data frame with the effective sample size for each chain and parameter
+a data.table data frame with the effective sample size for each parameter and, optionally, chain
 }
 \description{
 Diagnostic: Calculate the effective sample size for each chain and parameter
@@ -20,4 +22,5 @@ library(coda)
 data(line)
 line_ess <- diag_ess(line)
 line_ess
+coda::effectiveSize(line)
 }

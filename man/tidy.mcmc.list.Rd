@@ -4,8 +4,8 @@
 \alias{tidy.mcmc.list}
 \title{Return a tidy data summary of an MCMC object}
 \usage{
-\method{tidy}{mcmc.list}(x, conf_level = 0.95, chain = FALSE,
-  colnames = NULL, ...)
+\method{tidy}{mcmc.list}(x, conf_level = 0.95,
+  aggregate_chains = FALSE, colnames = NULL, ...)
 }
 \arguments{
 \item{x}{object of class "mcmc.list", as you would find with fitting a model
@@ -13,7 +13,7 @@ using \code{jags.model()}, and \code{coda.samples}.}
 
 \item{conf_level}{level of the credible interval to be calculuated}
 
-\item{chain}{whether or not to summarise each parameter for each chain}
+\item{aggregate_chains}{whether or not to summarise each parameter for each chain (FALSE, default) or to combine all chains (TRUE)}
 
 \item{colnames}{which parameters we want from \code{mcmc_object}, if \code{NULL} then all
 columns get selected}

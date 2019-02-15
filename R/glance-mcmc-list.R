@@ -23,27 +23,34 @@ glance.mcmc.list <- function(x, ...){
     }
     
     rhat <- coda::gelman.diag(x, ...)
-
+    
     rhat_range <- range(rhat$psrf[ , 1])
     rhat_lower <- rhat_range[1]
     rhat_upper <- rhat_range[2]
-
+    
     ess <- diag_ess(x_dt, ... )
     ess_range <- range(ess$ess)
     ess_lower <- ess_range[1]
     ess_upper <- ess_range[2]
-
-    mcpar <- attr(x, "mcpar")
+    
+    n_chains <- n_chain(x)
+    
+    if (n_chains > 1){
+        mcpar <- attr(x[[1]], "mcpar")
+    } else {
+        mcpar <- attr(x, "mcpar")
+    }
+    
     
     # calculate chain length
     
     data.frame(
-        n_chains = n_chain(x),
+        n_chains = n_chains,
         n_iter = coda::niter(x),
         n_var = n_var(x),
-        n_thin = attribute(x, "mcpar")
-        iter_lower = min(x_dt$iteration),
-        iter_upper = max(x_dt$iteration),
+        n_thin = mcpar[3],
+        iter_lower = mcpar[1],
+        iter_upper = mcpar[2],
         ess_lower,
         ess_upper,
         rhat_lower,
