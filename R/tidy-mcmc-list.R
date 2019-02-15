@@ -9,7 +9,7 @@
 #' @param x object of class "mcmc.list", as you would find with fitting a model
 #'   using `jags.model()`, and `coda.samples`.
 #' @param conf_level level of the credible interval to be calculuated
-#' @param chain whether or not to summarise each parameter for each chain
+#' @param aggregate_chain whether or not to summarise each parameter for each chain (FALSE, default) or to combine all chains (TRUE)
 #' @param colnames which parameters we want from `mcmc_object`, if `NULL` then all
 #'   columns get selected
 #' @param ... extra arguments
@@ -33,7 +33,7 @@
 #'      colnames=c("alpha"))
 tidy.mcmc.list <- function(x,
                            conf_level = 0.95,
-                           chain = FALSE,
+                           aggregate_chain = FALSE,
                            colnames = NULL,
                            ...){
 

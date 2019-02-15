@@ -21,7 +21,7 @@ diag_ess <- function(x, aggregate_chains = TRUE){
         x <- mcmc_to_dt(x)
     }
     
-    agg_parms <- "parameter"
+    my_by <- "parameter"
     
     if (!aggregate_chains){
         agg_parms <- c("chain", agg_parms)
@@ -34,7 +34,7 @@ diag_ess <- function(x, aggregate_chains = TRUE){
         x_ess <- x_ess[ , .(ess = sum(ess)) , by = parameter ]
     } 
     
-    data.table::setcolorder(x_ess, c(agg_parms, "ess"))
+    data.table::setcolorder(x_ess, c(my_by, "ess"))
     
     x_ess
     
