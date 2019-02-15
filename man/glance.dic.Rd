@@ -15,9 +15,9 @@
 a one-row dataframe of summary information of the dic samples
 }
 \description{
-This provides a one-row dataframe (`data.table`) with information on the
- overall deviance, effective number of parameters (when `type` was pD) or
- optimism (when `type` was popt), and resulting penalised deviance.
+This provides a one-row dataframe (\code{data.table}) with information on the
+overall deviance, effective number of parameters (when \code{type} was pD) or
+optimism (when \code{type} was popt), and resulting penalised deviance.
 }
 \examples{
 library(rjags)

@@ -9,13 +9,13 @@
 }
 \arguments{
 \item{x}{object of class "mcmc.list", as you would find with fitting a model
-using `jags.model()`, and `coda.samples`.}
+using \code{jags.model()}, and \code{coda.samples}.}
 
 \item{conf_level}{level of the credible interval to be calculuated}
 
 \item{chain}{whether or not to summarise each parameter for each chain}
 
-\item{colnames}{which parameters we want from `mcmc_object`, if `NULL` then all
+\item{colnames}{which parameters we want from \code{mcmc_object}, if \code{NULL} then all
 columns get selected}
 
 \item{...}{extra arguments}
@@ -24,11 +24,11 @@ columns get selected}
 a data.table containing parameter summaries
 }
 \description{
-`tidy.mcmc.list` is a function that behaves like those from `broom`. It takes
-  an mcmc.list object from `coda.samples` and return a data frame that
-  summarises each parameters with its mean and quantiles and returns the output
-  as a data.table object. This can be called as `tidy`. Currently summarises
-  over all chains.
+\code{tidy.mcmc.list} is a function that behaves like those from \code{broom}. It takes
+an mcmc.list object from \code{coda.samples} and return a data frame that
+summarises each parameters with its mean and quantiles and returns the output
+as a data.table object. This can be called as \code{tidy}. Currently summarises
+over all chains.
 }
 \examples{
 library(coda)

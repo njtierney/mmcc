@@ -9,8 +9,8 @@
 data(example_stan_model)
 }
 \description{
-This is an example STAN model to use for examples in the `mmcc` package. It
-    was created with the example code given below in examples.
+This is an example STAN model to use for examples in the \code{mmcc} package. It
+was created with the example code given below in examples.
 }
 \examples{
 

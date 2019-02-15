@@ -16,8 +16,8 @@ a one-row dataframe of summary information of the mcmc model
 }
 \description{
 This provides a one-row dataframe with information on number of chains, the
-    number of variables, the number of iterations, and the lower and upper
-    values for effective sample size (ess), and rhat.
+number of variables, the number of iterations, and the lower and upper
+values for effective sample size (ess), and rhat.
 }
 \examples{
 

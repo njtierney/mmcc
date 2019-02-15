@@ -7,12 +7,12 @@
 diag_autocorr(x, lags = NULL)
 }
 \arguments{
-\item{x}{mcmc.list object or dataframe creatd by `mcmc_to_dt`}
+\item{x}{mcmc.list object or dataframe creatd by \code{mcmc_to_dt}}
 
 \item{lags}{integer the lag value that you want to use}
 }
 \value{
-a data.table data frame with the autocorrelation at each lag for each chain and parameter columns `lag`, `acf`, `chain`, and `parameter`
+a data.table data frame with the autocorrelation at each lag for each chain and parameter columns \code{lag}, \code{acf}, \code{chain}, and \code{parameter}
 }
 \description{
 Diagnostic: Calculate the autocorrelation for each chain and parameter

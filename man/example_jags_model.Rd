@@ -9,12 +9,12 @@
 data(example_jags_model)
 }
 \description{
-This is an example JAGS model to use for examples in the `mmcc` package. The
-    model is fit as a basic linear regression, with uniform priors on beta0
-    and beta1, where y is assumed to be normal, with mean mu and precision
-    tau. The model is drawn from the vignette, "Model summaries for a
-    Bayesian linear regression", and the code to generate it can be found in
-    the `data-raw` folder.
+This is an example JAGS model to use for examples in the \code{mmcc} package. The
+model is fit as a basic linear regression, with uniform priors on beta0
+and beta1, where y is assumed to be normal, with mean mu and precision
+tau. The model is drawn from the vignette, "Model summaries for a
+Bayesian linear regression", and the code to generate it can be found in
+the \code{data-raw} folder.
 }
 \examples{
 library(rjags)

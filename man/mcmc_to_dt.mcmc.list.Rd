@@ -2,23 +2,23 @@
 % Please edit documentation in R/mcmc_tidiers.R
 \name{mcmc_to_dt.mcmc.list}
 \alias{mcmc_to_dt.mcmc.list}
-\title{Convert `mcmc.list` to a tidy data.table object}
+\title{Convert \code{mcmc.list} to a tidy data.table object}
 \usage{
 \method{mcmc_to_dt}{mcmc.list}(mcmc_object, ..., colnames = NULL)
 }
 \arguments{
 \item{mcmc_object}{an object of class "mcmc.list", as you would find with
-fitting a model using `jags.model()`, and `coda.samples`, or "stan", from
+fitting a model using \code{jags.model()}, and \code{coda.samples}, or "stan", from
 fitting a stan model.}
 
 \item{...}{additional arguments}
 
-\item{colnames}{which parameters we want from `mcmc_object`, if `NULL` then all
+\item{colnames}{which parameters we want from \code{mcmc_object}, if \code{NULL} then all
 columns get selected}
 }
 \description{
-`mcmc_to_dt` use data.table to return a tidy dataframe from an "mcmc.list",
- or "stan" object.
+\code{mcmc_to_dt} use data.table to return a tidy dataframe from an "mcmc.list",
+or "stan" object.
 }
 \examples{
 library(coda)
