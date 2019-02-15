@@ -79,3 +79,8 @@ n_var.mcmc.list <- function(x){
 n_var.NULL <- function(x){
     NULL
 }
+
+n_var.data.table <- function(x){
+    # is this going to respect chain aggregation?
+    length(unique)
+}

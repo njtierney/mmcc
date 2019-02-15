@@ -2,8 +2,9 @@
 #'
 #'
 #' @param x mcmc.list object or dataframe creatd by `mcmc_to_dt`
+#' @param aggregate_chains a logical indicating whether to aggregate chains (the way `coda::effectSize` does, the default) or report effective sample sizes for each parameter for each chain
 #'
-#' @return a data.table data frame with the effective sample size for each chain and parameter
+#' @return a data.table data frame with the effective sample size for each parameter and, optionally, chain
 #' 
 #' @export
 #'
@@ -12,18 +13,28 @@
 #' data(line)
 #' line_ess <- diag_ess(line)
 #' line_ess
+#' coda::effectiveSize(line)
 
-diag_ess <- function(x){
+diag_ess <- function(x, aggregate_chains = TRUE){
     
     if (inherits(x, "mcmc.list")) {
         x <- mcmc_to_dt(x)
     }
     
-    x_ess <- x[ , .(ess = make_ess(value)) , by = list(chain, parameter)]
+    agg_parms <- "parameter"
+    
+    if (!aggregate_chains){
+        agg_parms <- c("chain", agg_parms)
+    } 
+    
+    x_ess <- x[ , .(ess = make_ess(value)) ,
+                by = list(chain, parameter)]
 
-    data.table::setcolorder(x_ess, c("chain",
-                                    "parameter",
-                                    "ess"))
+    if (aggregate_chains){
+        x_ess <- x_ess[ , .(ess = sum(ess)) , by = parameter ]
+    } 
+    
+    data.table::setcolorder(x_ess, c(agg_parms, "ess"))
     
     x_ess
     
