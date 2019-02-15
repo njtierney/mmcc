@@ -42,3 +42,4 @@ Suggests:
 VignetteBuilder: knitr
 Depends:
     R (>= 3.1.2)
+Roxygen: list(markdown = TRUE)
