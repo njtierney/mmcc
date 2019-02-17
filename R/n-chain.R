@@ -60,22 +60,3 @@ n_chain.stanfit <- function(x){
 n_chain.jags <- function(x){
     x$nchain()
 }
-
-#' @export
-#' @rdname mcmc-dims
-n_var <- function(x){
-    UseMethod("n_var")
-}
-
-#' @export
-n_var.mcmc <- function(x){
-    ncol(x)
-}
-
-n_var.mcmc.list <- function(x){
-    ncol(x[[1]])
-}
-
-n_var.NULL <- function(x){
-    NULL
-}
