@@ -26,7 +26,8 @@ Imports:
     coda,
     generics,
     graphics,
-    stats
+    stats,
+    glue
 RoxygenNote: 6.1.1
 Suggests: 
     knitr,
