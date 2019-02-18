@@ -1,7 +1,7 @@
 Package: mmcc
 Type: Package
 Title: tidy mcmc.list using data.table
-Version: 0.0.8.9600
+Version: 0.0.9.9000
 Authors@R: c(
   person("Nicholas", "Tierney", 
          role = c("aut", "cre"),
@@ -26,7 +26,8 @@ Imports:
     coda,
     generics,
     graphics,
-    stats
+    stats,
+    glue
 RoxygenNote: 6.1.1
 Suggests: 
     knitr,
