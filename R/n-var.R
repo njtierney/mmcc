@@ -5,6 +5,11 @@ n_var <- function(x){
 }
 
 #' @export
+n_var.default <- function(x){
+    stop_not_right_for_mmcc()
+}
+
+#' @export
 n_var.mcmc <- function(x){
     if (is.matrix(x)) {
         return(ncol(x))
