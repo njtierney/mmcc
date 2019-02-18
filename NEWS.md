@@ -1,3 +1,9 @@
+# mmcc 0.0.9.9000 (2019/02/18)
+
+## New Features 
+
+* Implement dimension amounts for `n_var`, `n_iter` and `n_chain` #33
+
 # mmcc 0.0.8.9600 (2019/02/13)
 
 ## New Features

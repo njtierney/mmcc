@@ -37,7 +37,7 @@ n_iter.data.table <- function(x){
 }
 
 n_iter.stanfit <- function(x){
-    x@sim$iter
+    as.integer(x@sim$iter)
 }
 
 n_iter.jags <- function(x){
