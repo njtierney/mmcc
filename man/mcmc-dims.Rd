@@ -15,6 +15,8 @@ n_var(x)
 }
 \arguments{
 \item{x}{an mcmc object, see "Details" for a list of supported mcmc objects.}
+
+\item{unroll_vectors}{a logical to tell \code{n_var} whether to count a named vector of size $k$ (e.g. from a random effect) as 1 parameter (FALSE, default) or as $k$ parameters (TRUE)}
 }
 \description{
 Retrieve dimensions of an MCMC object:

@@ -46,7 +46,7 @@ glance.mcmc.list <- function(x, ...){
     
     data.frame(
         n_chains = n_chains,
-        n_iter = coda::niter(x),
+        n_iter = n_iter(x),
         n_var = n_var(x),
         n_thin = mcpar[3],
         iter_lower = mcpar[1],

@@ -38,15 +38,29 @@ n_var.data.table <- function(x){
 }
 
 #' @export
-n_var.stanfit <- function(x){
+n_var.stanfit <- function(x, unroll_vectors = FALSE){
     # note - is "lp__" a parameter we care about?
     # what about y[1] and y[2]?
-    length(x@model_pars)
+    
+    vars <- x@inits %>%
+        purrr::pluck(1) 
+    
+    if (unroll_vectors){
+        vars <- unlist(vars)
+    }
+    
+    length(vars)
+    
 }
 
 #' @export
-n_var.jags <- function(x){
-    x$state() %>%
-        purrr::pluck(1) %>%
-        length()
+n_var.jags <- function(x, unroll_vectors = FALSE){
+    vars <- x$state() %>%
+        purrr::pluck(1) 
+    
+    if (unroll_vectors){
+        vars <- unlist(vars)
+    }
+    
+    length(vars)
 }

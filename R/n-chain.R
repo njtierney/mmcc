@@ -14,6 +14,7 @@
 #'     * `jags`
 #'
 #' @param x an mcmc object, see "Details" for a list of supported mcmc objects.
+#' @param unroll_vectors a logical to tell `n_var` whether to count a named vector of size $k$ (e.g. from a random effect) as 1 parameter (FALSE, default) or as $k$ parameters (TRUE)
 #'
 #' @name mcmc-dims
 #'
