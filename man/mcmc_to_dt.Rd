@@ -2,13 +2,13 @@
 % Please edit documentation in R/mcmc_tidiers.R
 \name{mcmc_to_dt}
 \alias{mcmc_to_dt}
-\title{Convert `mcmc.list` to a tidy data.table object}
+\title{Convert \code{mcmc.list} to a tidy data.table object}
 \usage{
 mcmc_to_dt(mcmc_object, ...)
 }
 \arguments{
 \item{mcmc_object}{an object of class "mcmc.list", as you would find with
-fitting a model using `jags.model()`, and `coda.samples`, or "stan", from
+fitting a model using \code{jags.model()}, and \code{coda.samples}, or "stan", from
 fitting a stan model.}
 
 \item{...}{additional arguments}
@@ -17,6 +17,6 @@ fitting a stan model.}
 a tidy data.table dataframe of MCMC sample
 }
 \description{
-`mcmc_to_dt` use data.table to return a tidy dataframe from an "mcmc.list",
- or "stan" object.
+\code{mcmc_to_dt} use data.table to return a tidy dataframe from an "mcmc.list",
+or "stan" object.
 }

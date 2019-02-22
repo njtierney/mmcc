@@ -7,7 +7,7 @@
 diag_ess(x)
 }
 \arguments{
-\item{x}{mcmc.list object or dataframe creatd by `mcmc_to_dt`}
+\item{x}{mcmc.list object or dataframe creatd by \code{mcmc_to_dt}}
 }
 \value{
 a data.table data frame with the effective sample size for each chain and parameter

@@ -8,7 +8,7 @@
 }
 \arguments{
 \item{mcmc_object}{an object of class "mcmc.list", as you would find with
-fitting a model using `jags.model()`, and `coda.samples`, or "stan", from
+fitting a model using \code{jags.model()}, and \code{coda.samples}, or "stan", from
 fitting a stan model.}
 
 \item{...}{additional arguments}

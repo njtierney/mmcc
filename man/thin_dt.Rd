@@ -7,7 +7,7 @@
 thin_dt(dt, thin = 1)
 }
 \arguments{
-\item{dt}{an object of class "data.table" returned from `mcmc_to_dt`}
+\item{dt}{an object of class "data.table" returned from \code{mcmc_to_dt}}
 
 \item{thin}{thinning interval}
 }
