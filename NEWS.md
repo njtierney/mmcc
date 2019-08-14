@@ -14,7 +14,7 @@
 
 ## Minor Changes
 
-* Minor speed-ups (1.5x) in `diag_autocorr` gained by pulling the two `lapply` calls together and separating the chain and parameter values from the id column simultaneousy.
+* Minor speed-ups (1.5x) in `diag_autocorr` gained by pulling the two `lapply` calls together and separating the chain and parameter values from the id column simultaneously.
 
 # mmcc 0.0.8.9400 (2019/02/01)
 
@@ -38,7 +38,7 @@
 ## Minor Changes
 
 - Updated to use generics instead of importing broom
-- Removed greta vignette as the python/tensorflow build problems were stopping he package from building properley
+- Removed greta vignette as the python/tensorflow build problems were stopping he package from building properly
 - added test coverage
 
 mmcc 0.0.7.9000 (2018/08/03)

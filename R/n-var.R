@@ -34,7 +34,7 @@ n_var.NULL <- function(x){
 
 #' @export
 n_var.data.table <- function(x){
-    dplyr::n_distinct(x$parameter)
+    length(unique((x$parameter)))
 }
 
 #' @export
