@@ -12,7 +12,7 @@ Status](https://img.shields.io/codecov/c/github/njtierney/mmcc/master.svg)](http
 
 Tidying up MCMC output can be a real pain. There are plenty of packages
 that help with summarising MCMC and providing their own summaries, but
-sometimes *you just want a tidy datastructure* so you can do your own
+sometimes *you just want a tidy data structure* so you can do your own
 thing. And quickly.
 
 `mmcc` provides tidying functions that return tidy data structure from
@@ -28,7 +28,7 @@ Install from github using:
 remotes::install_github("njtierney/mmcc")
 ```
 
-# Usingage mmcc
+# Using mmcc
 
 `mcmc_to_dt` takes an `mcmc.list` object and turns it into a
 `data.table` of the format:
