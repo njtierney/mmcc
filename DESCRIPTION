@@ -20,9 +20,6 @@ Imports:
     data.table,
     magrittr,
     purrr,
-    dplyr,
-    tidyr,
-    tibble,
     coda,
     generics,
     graphics,
@@ -39,8 +36,10 @@ Suggests:
     reticulate,
     rjags,
     testthat,
-    rstan (>= 2.17.0)
+    rstan (>= 2.17.0),
+    spelling
 VignetteBuilder: knitr
 Depends:
     R (>= 3.1.2)
 Roxygen: list(markdown = TRUE)
+Language: en-US

@@ -19,7 +19,7 @@ library(mmcc)
 [![Travis-CI Build Status](https://travis-ci.org/njtierney/mmcc.svg?branch=master)](https://travis-ci.org/njtierney/mmcc)
 [![Coverage Status](https://img.shields.io/codecov/c/github/njtierney/mmcc/master.svg)](https://codecov.io/github/njtierney/mmcc?branch=master)
 
-Tidying up MCMC output can be a real pain. There are plenty of packages that help with summarising MCMC and providing their own summaries, but sometimes _you just want a tidy datastructure_ so you can do your own thing. And quickly. 
+Tidying up MCMC output can be a real pain. There are plenty of packages that help with summarising MCMC and providing their own summaries, but sometimes _you just want a tidy data structure_ so you can do your own thing. And quickly. 
 
 `mmcc` provides tidying functions that return tidy data structure from mcmc.list objects. It uses `data.table` as the backend for speediness, it also provides `broom` tidiers to assist in some quick summaries.
 
@@ -33,7 +33,7 @@ remotes::install_github("njtierney/mmcc")
 ```
 
 
-# Usingage mmcc
+# Using mmcc
 
 `mcmc_to_dt` takes an `mcmc.list` object and turns it into a `data.table` of the format:
 

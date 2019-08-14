@@ -11,7 +11,7 @@
 \item{x}{object of class "mcmc.list", as you would find with fitting a model
 using \code{jags.model()}, and \code{coda.samples}.}
 
-\item{conf_level}{level of the credible interval to be calculuated}
+\item{conf_level}{level of the credible interval to be calculated}
 
 \item{chain}{whether or not to summarise each parameter for each chain}
 

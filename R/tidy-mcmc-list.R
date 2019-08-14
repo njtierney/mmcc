@@ -8,7 +8,7 @@
 #'
 #' @param x object of class "mcmc.list", as you would find with fitting a model
 #'   using `jags.model()`, and `coda.samples`.
-#' @param conf_level level of the credible interval to be calculuated
+#' @param conf_level level of the credible interval to be calculated
 #' @param chain whether or not to summarise each parameter for each chain
 #' @param colnames which parameters we want from `mcmc_object`, if `NULL` then all
 #'   columns get selected
