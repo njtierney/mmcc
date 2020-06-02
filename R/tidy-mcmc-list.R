@@ -32,14 +32,16 @@
 #'      chain = TRUE,
 #'      colnames=c("alpha"))
 tidy.mcmc.list <- function(x,
-                           conf_level = 0.95,
+                           conf_level = c(0.95),
                            chain = FALSE,
                            colnames = NULL,
                            ...){
 
     # set credible interval quantiles to use
+
     q <- c((1 - conf_level)/2,
            1 - (1 - conf_level)/2)
+    q <- sort(q)
 
     # convert from mcmc.list to data.table
     x_dt <- mcmc_to_dt(x, colnames = colnames)
@@ -51,6 +53,22 @@ tidy.mcmc.list <- function(x,
         my_by <- c(my_by, "chain")
     }
 
+    if(length(conf_level)==2){
+    x_dt_s <- x_dt[ , list(mean = mean(value),
+                           sd = stats::sd(value),
+                           q1 = stats::quantile(value, q[1]),
+                           q2 = stats::quantile(value, q[2]),
+                           median = stats::median(value),
+                           q3 = stats::quantile(value, q[3]),
+                           q4 = stats::quantile(value, q[4])),
+                    by = my_by]
+
+    data.table::setnames(x_dt_s,
+                         old = c("q1", "q2", "q3", "q4"),
+                         new = sprintf("%2.1f%%", q * 100))
+    return(x_dt_s)
+
+    } else if(length(conf_level)==1){
     x_dt_s <- x_dt[ , list(mean = mean(value),
                            sd = stats::sd(value),
                            q1 = stats::quantile(value, q[1]),
@@ -63,5 +81,9 @@ tidy.mcmc.list <- function(x,
                          new = sprintf("%2.1f%%", q * 100))
 
     return(x_dt_s)
+
+    } else{
+        stop("conf_level must either be length 1 or 2")
+    }
 }
 
