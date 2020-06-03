@@ -52,3 +52,10 @@ test_that("tidy colnames and chain options work", {
     expect_equal(ncol(tidy(line, colnames = "sigma", chain = TRUE)), 7)
 })
 
+test_that("tidy fails when conf_level is three numbers", {
+    expect_error(tidy(line, conf_level = c(0.95, 0.50, 0.25)))
+})
+
+test_that("tidy fails when conf_level is greater than 1", {
+    expect_error(tidy(line, conf_level = c(0.95, 50)))
+})

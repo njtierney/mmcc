@@ -33,12 +33,18 @@
 #'      chain = TRUE,
 #'      colnames=c("alpha"))
 #' # can provide two levels of confidence:
-#' tidy(line, conf_level = c(0.95, 50))
+#' tidy(line, conf_level = c(0.95, 0.50))
+#' tidy(line, conf_level = c(0.95))
+#' tidy(line, conf_level = c(0.89, 0.25))
 tidy.mcmc.list <- function(x,
                            conf_level = c(0.95),
                            chain = FALSE,
                            colnames = NULL,
                            ...){
+
+    if (any(conf_level >= 1)) {
+        stop("Confidence level needs to be below 1, it is", conf_level)
+    }
 
     # set credible interval quantiles to use
 

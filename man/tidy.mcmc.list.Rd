@@ -40,7 +40,9 @@ tidy(line,
      chain = TRUE,
      colnames=c("alpha"))
 # can provide two levels of confidence:
-tidy(line, conf_level = c(0.95, 50))
+tidy(line, conf_level = c(0.95, 0.50))
+tidy(line, conf_level = c(0.95))
+tidy(line, conf_level = c(0.89, 0.25))
 }
 \author{
 Sam Clifford, \email{sj.clifford@gmail.com}
