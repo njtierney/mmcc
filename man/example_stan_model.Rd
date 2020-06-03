@@ -4,7 +4,9 @@
 \name{example_stan_model}
 \alias{example_stan_model}
 \title{Example STAN Model}
-\format{An object of class \code{stanfit} of dimension 5 x 4 x 3.}
+\format{
+An object of class \code{stanfit} of dimension 5 x 4 x 3.
+}
 \usage{
 data(example_stan_model)
 }

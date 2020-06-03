@@ -4,7 +4,9 @@
 \name{example_jags_model}
 \alias{example_jags_model}
 \title{Example JAGS Model}
-\format{An object of class \code{jags} of length 8.}
+\format{
+An object of class \code{jags} of length 8.
+}
 \usage{
 data(example_jags_model)
 }
