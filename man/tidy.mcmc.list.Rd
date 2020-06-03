@@ -4,14 +4,14 @@
 \alias{tidy.mcmc.list}
 \title{Return a tidy data summary of an MCMC object}
 \usage{
-\method{tidy}{mcmc.list}(x, conf_level = 0.95, chain = FALSE,
-  colnames = NULL, ...)
+\method{tidy}{mcmc.list}(x, conf_level = c(0.95), chain = FALSE, colnames = NULL, ...)
 }
 \arguments{
 \item{x}{object of class "mcmc.list", as you would find with fitting a model
 using \code{jags.model()}, and \code{coda.samples}.}
 
-\item{conf_level}{level of the credible interval to be calculated}
+\item{conf_level}{level of the credible interval to be calculated.
+Can be multiple values.}
 
 \item{chain}{whether or not to summarise each parameter for each chain}
 
@@ -39,6 +39,8 @@ tidy(line)
 tidy(line,
      chain = TRUE,
      colnames=c("alpha"))
+# can provide two levels of confidence:
+tidy(line, conf_level = c(0.95, 50))
 }
 \author{
 Sam Clifford, \email{sj.clifford@gmail.com}
