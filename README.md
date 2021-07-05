@@ -3,12 +3,12 @@
 
 # mmcc
 
-[![AppVeyor Build
-Status](https://ci.appveyor.com/api/projects/status/github/njtierney/mmcc?branch=master&svg=true)](https://ci.appveyor.com/project/njtierney/mmcc)
-[![Travis-CI Build
-Status](https://travis-ci.org/njtierney/mmcc.svg?branch=master)](https://travis-ci.org/njtierney/mmcc)
-[![Coverage
-Status](https://img.shields.io/codecov/c/github/njtierney/mmcc/master.svg)](https://codecov.io/github/njtierney/mmcc?branch=master)
+<!-- badges: start -->
+
+[![R-CMD-check](https://github.com/njtierney/mmcc/workflows/R-CMD-check/badge.svg)](https://github.com/njtierney/mmcc/actions)
+[![Codecov test
+coverage](https://codecov.io/gh/njtierney/mmcc/branch/master/graph/badge.svg)](https://codecov.io/gh/njtierney/mmcc?branch=master)
+<!-- badges: end -->
 
 Tidying up MCMC output can be a real pain. There are plenty of packages
 that help with summarising MCMC and providing their own summaries, but
@@ -124,9 +124,9 @@ To quote Sam:
 
 # Future work
 
-  - Create summaries for each parameter
-  - Perform diagnostic summaries for convergence
-  - provide a suite of plotting in plotly, for speed, and interactivity.
+-   Create summaries for each parameter
+-   Perform diagnostic summaries for convergence
+-   provide a suite of plotting in plotly, for speed, and interactivity.
 
 ### Code of Conduct
 
