@@ -1,0 +1,36 @@
+---
+title: 'mmcc: Manipulating and Extracting information from Markov Chain Monte Carlo'
+authors:
+- affiliation: 1
+  name: Nicholas Tierney
+  orcid: 0000-0003-1460-8722
+date: "30 October 2021"
+output:
+  html_document:
+    keep_md: yes
+  pdf_document: default
+bibliography: paper.bib
+tags:
+- R
+- exporatory data analysis
+- data cleaning
+- Bayesian statistics
+affiliations:
+- index: 1
+  name: Telethon Kids Institiute
+---
+
+# Summary
+
+When fitting a model with Bayesian methods you will typically end up with a list
+of MCMC samples. Tidying up MCMC output can be challenging as the default MCMC list is very large and unwieldy. There are plenty of packages that help with summarising MCMC and providing their own summaries, such as [posterior](https://github.com/stan-dev/posterior) and [tidybayes](https://mjskay.github.io/tidybayes/). This package takes a different approach and focuses directly instead on providing a single tidy data structure, and calculating model summaries and diagnostics.
+
+`mmcc` is an R[@Rcore]  package that provides tidying functions that return tidy data structure from mcmc.list objects. It uses `data.table` as the backend for speed, provides `broom` [@broom] tidiers for summaries, and diagnostics to understand models.
+
+The `mmcc` package will continue to be improved over time, to improve speed in computation and add workflows for using with other packages.
+
+# Acknowlegements
+
+I would like to thank Sam Clifford for his initial work on the package and help providing the name.
+
+# References

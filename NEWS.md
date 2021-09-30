@@ -1,8 +1,9 @@
-# mmcc 0.0.9.9000 (2019/02/18)
+# mmcc 0.0.9.9000 (2021/09/30)
 
 ## New Features 
 
 * Implement dimension amounts for `n_var`, `n_iter` and `n_chain` #33
+* Implement `n_sims` - #50
 
 # mmcc 0.0.8.9600 (2019/02/13)
 
