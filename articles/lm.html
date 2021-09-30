@@ -165,17 +165,17 @@
 <span class="va">samples_dt</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mcmc_to_dt.html">mcmc_to_dt</a></span><span class="op">(</span><span class="va">samples</span><span class="op">)</span>
 <span class="va">samples_dt</span>
 <span class="co">#&gt;         iteration chain  parameter     value</span>
-<span class="co">#&gt;      1:         1     1     beta_0 0.7040640</span>
-<span class="co">#&gt;      2:         2     1     beta_0 0.9175383</span>
-<span class="co">#&gt;      3:         3     1     beta_0 0.9348972</span>
-<span class="co">#&gt;      4:         4     1     beta_0 0.9105159</span>
-<span class="co">#&gt;      5:         5     1     beta_0 0.9153644</span>
+<span class="co">#&gt;      1:         1     1     beta_0 0.9182413</span>
+<span class="co">#&gt;      2:         2     1     beta_0 0.8602024</span>
+<span class="co">#&gt;      3:         3     1     beta_0 0.8315581</span>
+<span class="co">#&gt;      4:         4     1     beta_0 0.8853736</span>
+<span class="co">#&gt;      5:         5     1     beta_0 0.9354120</span>
 <span class="co">#&gt;     ---                                     </span>
-<span class="co">#&gt; 689996:      9996     3 y_pred[10] 3.1573179</span>
-<span class="co">#&gt; 689997:      9997     3 y_pred[10] 3.4241534</span>
-<span class="co">#&gt; 689998:      9998     3 y_pred[10] 3.0473054</span>
-<span class="co">#&gt; 689999:      9999     3 y_pred[10] 2.9688662</span>
-<span class="co">#&gt; 690000:     10000     3 y_pred[10] 2.9651608</span>
+<span class="co">#&gt; 689996:      9996     3 y_pred[10] 3.2031642</span>
+<span class="co">#&gt; 689997:      9997     3 y_pred[10] 3.3362721</span>
+<span class="co">#&gt; 689998:      9998     3 y_pred[10] 3.0519946</span>
+<span class="co">#&gt; 689999:      9999     3 y_pred[10] 3.0175266</span>
+<span class="co">#&gt; 690000:     10000     3 y_pred[10] 2.8919570</span>
 
 <span class="va">pars_dt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">samples</span>, 
                 conf_level <span class="op">=</span> <span class="fl">0.95</span>, 
@@ -184,10 +184,10 @@
                              <span class="st">"tau_y"</span><span class="op">)</span><span class="op">)</span>
 
 <span class="va">pars_dt</span>
-<span class="co">#&gt;    parameter       mean        sd      2.5%     median     97.5%</span>
-<span class="co">#&gt; 1:    beta_0  0.9266717 0.1016570 0.7258147  0.9268829  1.131665</span>
-<span class="co">#&gt; 2:    beta_1  2.2216193 0.1869224 1.8527750  2.2206724  2.593475</span>
-<span class="co">#&gt; 3:     tau_y 13.7390184 4.5630844 6.2862258 13.2462648 23.976565</span></code></pre></div>
+<span class="co">#&gt;    parameter       mean       sd      2.5%     median     97.5%</span>
+<span class="co">#&gt; 1:    beta_0  0.9296215 0.101305 0.7295948  0.9301098  1.129934</span>
+<span class="co">#&gt; 2:    beta_1  2.2167433 0.186243 1.8478209  2.2157630  2.587057</span>
+<span class="co">#&gt; 3:     tau_y 13.8112045 4.582651 6.2437835 13.3101928 23.989531</span></code></pre></div>
 <p>Summarise the line of best fit, <code>mu</code>, and the predictions, <code>y_pred</code>,</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mu_dt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">samples</span>, 
@@ -203,16 +203,16 @@
 <span class="va">y_dt</span><span class="op">[</span> , <span class="va">x</span><span class="op">:=</span> <span class="va">x_pred</span><span class="op">]</span>
 <span class="va">y_dt</span>
 <span class="co">#&gt;      parameter      mean        sd      2.5%    median    97.5%         x</span>
-<span class="co">#&gt;  1:  y_pred[1] 0.9541941 0.3014710 0.3628141 0.9545849 1.549396 0.0112199</span>
-<span class="co">#&gt;  2:  y_pred[2] 1.1947011 0.2970781 0.6068132 1.1948818 1.783926 0.1202395</span>
-<span class="co">#&gt;  3:  y_pred[3] 1.4360943 0.2963619 0.8457764 1.4367752 2.016978 0.2292590</span>
-<span class="co">#&gt;  4:  y_pred[4] 1.6771178 0.2948084 1.0901541 1.6770142 2.262103 0.3382786</span>
-<span class="co">#&gt;  5:  y_pred[5] 1.9177400 0.2940905 1.3438328 1.9157540 2.505609 0.4472982</span>
-<span class="co">#&gt;  6:  y_pred[6] 2.1633084 0.2960889 1.5764067 2.1630470 2.741451 0.5563177</span>
-<span class="co">#&gt;  7:  y_pred[7] 2.4038990 0.2946830 1.8185686 2.4042897 2.991927 0.6653373</span>
-<span class="co">#&gt;  8:  y_pred[8] 2.6440129 0.3009429 2.0508689 2.6444136 3.239760 0.7743569</span>
-<span class="co">#&gt;  9:  y_pred[9] 2.8896753 0.3053489 2.2950693 2.8884167 3.499913 0.8833765</span>
-<span class="co">#&gt; 10: y_pred[10] 3.1325867 0.3129946 2.5075516 3.1353279 3.753481 0.9923960</span></code></pre></div>
+<span class="co">#&gt;  1:  y_pred[1] 0.9547195 0.3012127 0.3619248 0.9534769 1.547582 0.0112199</span>
+<span class="co">#&gt;  2:  y_pred[2] 1.1992819 0.2984193 0.6093406 1.1981327 1.792760 0.1202395</span>
+<span class="co">#&gt;  3:  y_pred[3] 1.4375644 0.2951798 0.8523406 1.4359580 2.021674 0.2292590</span>
+<span class="co">#&gt;  4:  y_pred[4] 1.6784635 0.2925701 1.0923693 1.6803560 2.256437 0.3382786</span>
+<span class="co">#&gt;  5:  y_pred[5] 1.9199569 0.2898855 1.3537393 1.9172094 2.498724 0.4472982</span>
+<span class="co">#&gt;  6:  y_pred[6] 2.1625679 0.2931463 1.5809125 2.1615020 2.743690 0.5563177</span>
+<span class="co">#&gt;  7:  y_pred[7] 2.4046414 0.2961257 1.8154327 2.4044855 2.991451 0.6653373</span>
+<span class="co">#&gt;  8:  y_pred[8] 2.6448585 0.3002198 2.0470801 2.6467230 3.241426 0.7743569</span>
+<span class="co">#&gt;  9:  y_pred[9] 2.8866617 0.3041340 2.2918764 2.8886824 3.489357 0.8833765</span>
+<span class="co">#&gt; 10: y_pred[10] 3.1294489 0.3124465 2.5058779 3.1304119 3.746622 0.9923960</span></code></pre></div>
 <p>Now we’ll generate a plot that shows the data, a 95% credible interval for the predictions, <span class="math inline">\({\hat{\bm{y}}}_{pred}\)</span>, and a 95% credible interval for their means, <span class="math inline">\({\hat{\bm{\mu}}}_{pred}\)</span>.</p>
 <p><img src="lm_files/figure-html/mmcc-plot-cr-i-1.png" width="700" style="display: block; margin: auto;"></p>
 <p>If we tidy the <code>samples</code> object, we can look at the distribution of values</p>
