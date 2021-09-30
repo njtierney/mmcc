@@ -44,9 +44,6 @@
   <a href="../articles/lm.html">Model summaries for a Bayesian linear regression</a>
 </li>
 <li>
-  <a href="../articles/using-mmcc-w-greta.html">Using mmcc with greta</a>
-</li>
-<li>
   <a href="../news/index.html">News</a>
 </li>
       </ul>
@@ -66,7 +63,7 @@
       <h1 data-toc-skip>Model summaries for a Bayesian linear regression</h1>
                         <h4 class="author">Sam Clifford</h4>
             
-            <h4 class="date">2021-07-05</h4>
+            <h4 class="date">2021-09-30</h4>
       
       
       <div class="hidden name"><code>lm.Rmd</code></div>
@@ -124,7 +121,7 @@
 }"</span></code></pre></div>
 <p>and then generate the <code>mcmc_object</code> with the <code>rjags</code> package.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://mcmc-jags.sourceforge.net">rjags</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mcmc-jags.sourceforge.io">rjags</a></span><span class="op">)</span>
 <span class="co">#&gt; Loading required package: coda</span>
 <span class="co">#&gt; Linked to JAGS 4.3.0</span>
 <span class="co">#&gt; Loaded modules: basemod,bugs</span>
@@ -168,17 +165,17 @@
 <span class="va">samples_dt</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mcmc_to_dt.html">mcmc_to_dt</a></span><span class="op">(</span><span class="va">samples</span><span class="op">)</span>
 <span class="va">samples_dt</span>
 <span class="co">#&gt;         iteration chain  parameter     value</span>
-<span class="co">#&gt;      1:         1     1     beta_0 0.9043032</span>
-<span class="co">#&gt;      2:         2     1     beta_0 0.9724755</span>
-<span class="co">#&gt;      3:         3     1     beta_0 0.9657901</span>
-<span class="co">#&gt;      4:         4     1     beta_0 0.8836063</span>
-<span class="co">#&gt;      5:         5     1     beta_0 1.0218659</span>
+<span class="co">#&gt;      1:         1     1     beta_0 0.7040640</span>
+<span class="co">#&gt;      2:         2     1     beta_0 0.9175383</span>
+<span class="co">#&gt;      3:         3     1     beta_0 0.9348972</span>
+<span class="co">#&gt;      4:         4     1     beta_0 0.9105159</span>
+<span class="co">#&gt;      5:         5     1     beta_0 0.9153644</span>
 <span class="co">#&gt;     ---                                     </span>
-<span class="co">#&gt; 689996:      9996     3 y_pred[10] 3.2020422</span>
-<span class="co">#&gt; 689997:      9997     3 y_pred[10] 3.3930977</span>
-<span class="co">#&gt; 689998:      9998     3 y_pred[10] 2.7892213</span>
-<span class="co">#&gt; 689999:      9999     3 y_pred[10] 3.0484870</span>
-<span class="co">#&gt; 690000:     10000     3 y_pred[10] 3.4956721</span>
+<span class="co">#&gt; 689996:      9996     3 y_pred[10] 3.1573179</span>
+<span class="co">#&gt; 689997:      9997     3 y_pred[10] 3.4241534</span>
+<span class="co">#&gt; 689998:      9998     3 y_pred[10] 3.0473054</span>
+<span class="co">#&gt; 689999:      9999     3 y_pred[10] 2.9688662</span>
+<span class="co">#&gt; 690000:     10000     3 y_pred[10] 2.9651608</span>
 
 <span class="va">pars_dt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">samples</span>, 
                 conf_level <span class="op">=</span> <span class="fl">0.95</span>, 
@@ -187,10 +184,10 @@
                              <span class="st">"tau_y"</span><span class="op">)</span><span class="op">)</span>
 
 <span class="va">pars_dt</span>
-<span class="co">#&gt;    parameter      mean        sd      2.5%    median     97.5%</span>
-<span class="co">#&gt; 1:    beta_0  0.928110 0.1006529 0.7320871  0.926899  1.130566</span>
-<span class="co">#&gt; 2:    beta_1  2.219867 0.1855108 1.8517240  2.222386  2.582066</span>
-<span class="co">#&gt; 3:     tau_y 13.809176 4.5969508 6.3290859 13.295207 24.210773</span></code></pre></div>
+<span class="co">#&gt;    parameter       mean        sd      2.5%     median     97.5%</span>
+<span class="co">#&gt; 1:    beta_0  0.9266717 0.1016570 0.7258147  0.9268829  1.131665</span>
+<span class="co">#&gt; 2:    beta_1  2.2216193 0.1869224 1.8527750  2.2206724  2.593475</span>
+<span class="co">#&gt; 3:     tau_y 13.7390184 4.5630844 6.2862258 13.2462648 23.976565</span></code></pre></div>
 <p>Summarise the line of best fit, <code>mu</code>, and the predictions, <code>y_pred</code>,</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mu_dt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">samples</span>, 
@@ -206,16 +203,16 @@
 <span class="va">y_dt</span><span class="op">[</span> , <span class="va">x</span><span class="op">:=</span> <span class="va">x_pred</span><span class="op">]</span>
 <span class="va">y_dt</span>
 <span class="co">#&gt;      parameter      mean        sd      2.5%    median    97.5%         x</span>
-<span class="co">#&gt;  1:  y_pred[1] 0.9557544 0.3023191 0.3577971 0.9556256 1.557481 0.0112199</span>
-<span class="co">#&gt;  2:  y_pred[2] 1.1972981 0.2971423 0.6135665 1.1948845 1.797454 0.1202395</span>
-<span class="co">#&gt;  3:  y_pred[3] 1.4372281 0.2928611 0.8653318 1.4332972 2.021741 0.2292590</span>
-<span class="co">#&gt;  4:  y_pred[4] 1.6776073 0.2936453 1.1003654 1.6773153 2.261923 0.3382786</span>
-<span class="co">#&gt;  5:  y_pred[5] 1.9232336 0.2930525 1.3451485 1.9226541 2.504727 0.4472982</span>
-<span class="co">#&gt;  6:  y_pred[6] 2.1619336 0.2934852 1.5899845 2.1598684 2.745758 0.5563177</span>
-<span class="co">#&gt;  7:  y_pred[7] 2.4063392 0.2944922 1.8200010 2.4079312 2.994632 0.6653373</span>
-<span class="co">#&gt;  8:  y_pred[8] 2.6433794 0.2997165 2.0418385 2.6429691 3.233053 0.7743569</span>
-<span class="co">#&gt;  9:  y_pred[9] 2.8907016 0.3054619 2.2875204 2.8941276 3.498914 0.8833765</span>
-<span class="co">#&gt; 10: y_pred[10] 3.1307127 0.3118148 2.5103146 3.1334262 3.747545 0.9923960</span></code></pre></div>
+<span class="co">#&gt;  1:  y_pred[1] 0.9541941 0.3014710 0.3628141 0.9545849 1.549396 0.0112199</span>
+<span class="co">#&gt;  2:  y_pred[2] 1.1947011 0.2970781 0.6068132 1.1948818 1.783926 0.1202395</span>
+<span class="co">#&gt;  3:  y_pred[3] 1.4360943 0.2963619 0.8457764 1.4367752 2.016978 0.2292590</span>
+<span class="co">#&gt;  4:  y_pred[4] 1.6771178 0.2948084 1.0901541 1.6770142 2.262103 0.3382786</span>
+<span class="co">#&gt;  5:  y_pred[5] 1.9177400 0.2940905 1.3438328 1.9157540 2.505609 0.4472982</span>
+<span class="co">#&gt;  6:  y_pred[6] 2.1633084 0.2960889 1.5764067 2.1630470 2.741451 0.5563177</span>
+<span class="co">#&gt;  7:  y_pred[7] 2.4038990 0.2946830 1.8185686 2.4042897 2.991927 0.6653373</span>
+<span class="co">#&gt;  8:  y_pred[8] 2.6440129 0.3009429 2.0508689 2.6444136 3.239760 0.7743569</span>
+<span class="co">#&gt;  9:  y_pred[9] 2.8896753 0.3053489 2.2950693 2.8884167 3.499913 0.8833765</span>
+<span class="co">#&gt; 10: y_pred[10] 3.1325867 0.3129946 2.5075516 3.1353279 3.753481 0.9923960</span></code></pre></div>
 <p>Now we’ll generate a plot that shows the data, a 95% credible interval for the predictions, <span class="math inline">\({\hat{\bm{y}}}_{pred}\)</span>, and a 95% credible interval for their means, <span class="math inline">\({\hat{\bm{\mu}}}_{pred}\)</span>.</p>
 <p><img src="lm_files/figure-html/mmcc-plot-cr-i-1.png" width="700" style="display: block; margin: auto;"></p>
 <p>If we tidy the <code>samples</code> object, we can look at the distribution of values</p>

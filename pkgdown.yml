@@ -3,7 +3,7 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   lm: lm.html
-last_built: 2021-07-05T07:51Z
+last_built: 2021-09-30T09:05Z
 urls:
   reference: http://mmcc.njtierney.com//reference
   article: http://mmcc.njtierney.com//articles
