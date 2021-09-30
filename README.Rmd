@@ -54,7 +54,6 @@ mcmc_dt
 
 ```
 
-
 `tidy.mcmc.list` takes an `mcmc.list`, turns it into a `data.table` and summarises it in terms of each parameter's mean, median, standard deviation and credible interval with level given by `conf.level`:
 
 ``` {r show-tidy-method}
@@ -89,21 +88,57 @@ ggplot(data = line_tidy,
     ylab("Value")
 ```
 
-# Why mmcc?
+# Helpers
+
+`mmcc` provides helpers to extract the number of chains, iterations, simulations, and variables in an MCMC object:
+
+```{r n-helpers}
+n_chain(line)
+n_iter(line)
+n_sims(line)
+n_var(line)
+```
+
+# glance helper
+
+General model summary providing information on:
+
+* Number of chains
+* Number of iterations
+* Number of variables/parameters
+* Lower and upper effective sample size (ESS)
+* lower and upper estimates of rhat measurement of convergence assessment
+
+```{r}
+glance(line)
+```
+
+# Diagnostics
+
+```{r diagnostics}
+diag_autocorr(line)
+diag_ess(line)
+diag_mc_stderr(line)
+```
+
+# Thinning
+
+```{r thinning}
+thin_dt(mcmc_to_dt(line), thin = 10)
+```
+
+# Why the name, "mmcc"?
 
 Full credit does to [Sam Clifford](https://www.samclifford.info/) for the name. 
 
 To quote Sam:
 
-> ...it's all about reshaping and manipulating mcmc chains...
-
-...therefore, mmcc
+> ...it's all about reshaping and manipulating mcmc chains...therefore, mmcc
 
 # Future work
 
-- Create summaries for each parameter
-- Perform diagnostic summaries for convergence
-- provide a suite of plotting in plotly, for speed, and interactivity.
+- Summaries for each parameter
+- More diagnostic summaries for convergence
 
 ### Code of Conduct
 

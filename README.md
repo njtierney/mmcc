@@ -111,22 +111,109 @@ ggplot(data = line_tidy,
 
 ![](man/figures/README-show-tidy-ggplot-1.png)<!-- -->
 
-# Why mmcc?
+# Helpers
+
+`mmcc` provides helpers to extract the number of chains, iterations,
+simulations, and variables in an MCMC object:
+
+``` r
+n_chain(line)
+#> [1] 2
+n_iter(line)
+#> [1] 200
+n_sims(line)
+#> [1] 400
+n_var(line)
+#> [1] 3
+```
+
+# glance helper
+
+General model summary providing information on:
+
+-   Number of chains
+-   Number of iterations
+-   Number of variables/parameters
+-   Lower and upper effective sample size (ESS)
+-   lower and upper estimates of rhat measurement of convergence
+    assessment
+
+``` r
+glance(line)
+#>   n_chains n_iter n_var ess_lower ess_upper rhat_lower rhat_upper
+#> 1        2    200     3  167.5889  455.3178   1.000695   1.037599
+```
+
+# Diagnostics
+
+``` r
+diag_autocorr(line)
+diag_ess(line)
+#>    chain parameter       ess
+#> 1:     1     alpha 200.00000
+#> 2:     1      beta 249.43130
+#> 3:     1     sigma  90.16969
+#> 4:     2     alpha 255.31778
+#> 5:     2      beta 200.00000
+#> 6:     2     sigma  77.41925
+diag_mc_stderr(line)
+#> Warning in bmeans(v$value, b_size, warn): likely too few samples (less than
+#> 1000) for estimating Monte Carlo standard errors
+
+#> Warning in bmeans(v$value, b_size, warn): likely too few samples (less than
+#> 1000) for estimating Monte Carlo standard errors
+
+#> Warning in bmeans(v$value, b_size, warn): likely too few samples (less than
+#> 1000) for estimating Monte Carlo standard errors
+
+#> Warning in bmeans(v$value, b_size, warn): likely too few samples (less than
+#> 1000) for estimating Monte Carlo standard errors
+
+#> Warning in bmeans(v$value, b_size, warn): likely too few samples (less than
+#> 1000) for estimating Monte Carlo standard errors
+
+#> Warning in bmeans(v$value, b_size, warn): likely too few samples (less than
+#> 1000) for estimating Monte Carlo standard errors
+#>    parameter chain      mean      value
+#> 1:     alpha     1 2.9826146 0.03667355
+#> 2:     alpha     2 2.9925142 0.03001358
+#> 3:      beta     1 0.7866946 0.02285799
+#> 4:      beta     2 0.8116781 0.02778074
+#> 5:     sigma     1 0.9544249 0.10259971
+#> 6:     sigma     2 0.9816789 0.04737521
+```
+
+# Thinning
+
+``` r
+thin_dt(mcmc_to_dt(line), thin = 10)
+#>      iteration chain parameter    value
+#>   1:         1     1     alpha 7.173130
+#>   2:        11     1     alpha 3.065240
+#>   3:        21     1     alpha 2.876460
+#>   4:        31     1     alpha 2.943310
+#>   5:        41     1     alpha 3.087570
+#>  ---                                   
+#> 116:       151     2     sigma 0.764629
+#> 117:       161     2     sigma 1.315890
+#> 118:       171     2     sigma 1.034110
+#> 119:       181     2     sigma 2.362830
+#> 120:       191     2     sigma 1.009290
+```
+
+# Why the name, “mmcc”?
 
 Full credit does to [Sam Clifford](https://www.samclifford.info/) for
 the name.
 
 To quote Sam:
 
-> …it’s all about reshaping and manipulating mcmc chains…
-
-…therefore, mmcc
+> …it’s all about reshaping and manipulating mcmc chains…therefore, mmcc
 
 # Future work
 
--   Create summaries for each parameter
--   Perform diagnostic summaries for convergence
--   provide a suite of plotting in plotly, for speed, and interactivity.
+-   Summaries for each parameter
+-   More diagnostic summaries for convergence
 
 ### Code of Conduct
 
