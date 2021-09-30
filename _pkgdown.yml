@@ -26,7 +26,5 @@ navbar:
     href: reference/index.html
   - text: Model summaries for a Bayesian linear regression
     href: articles/lm.html
-  - text: Using mmcc with greta
-    href: articles/using-mmcc-w-greta.html
   - text: News
     href: news/index.html
